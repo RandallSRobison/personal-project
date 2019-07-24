@@ -3,18 +3,20 @@ const saltRounds = 12;
 
 module.exports = {
   async login(req, res) {
-    console.log("hit login", req.body);
+    // console.log("hit login", req.body);
     let { username, password } = req.body;
     const db = req.app.get("db");
     let [existingUser] = await db.get_user(username);
-    console.log(existingUser);
+    let groups = await db.get_user_groups(username)
+    // console.log(existingUser);
     if (!existingUser) return res.status(401).send("Username not found");
     let result = await bcrypt.compare(password, existingUser.password);
     if (result) {
       req.session.user = {
         username: existingUser.username,
         id: existingUser.id,
-        loggedIn: true
+        loggedIn: true,
+        groups: groups
       };
       res.send(req.session.user);
     } else res.status(401).send("Username or password is incorrect.");

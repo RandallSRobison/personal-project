@@ -2,28 +2,8 @@
     background-image: linear-gradient(#78CCFF 55%, #009EFF 80%);
 }
 
-.logo-login-parent {
-    display: flex;
-    flex-direction: column;
-    justify-content: baseline;
-    align-items: center;
-    width: 100vw;
-    height: 42vh;
-}
-
-.logo-login {
-    display: flex;
-    margin-top: 15px;
-    width: 85%;
-    height: 100%;
-    /* background-image: url(../../personalProjectLogo.png); */
-    background-size: cover;
-    outline: none;
-    border: none;
-}
-
 .main-container-2 {
-    height: 25vh;
+    height: 60vh;
     background: transparent;
     width: 100vw;
     display: flex;
@@ -88,7 +68,7 @@
 .register-parent {
     display: flex;
     width: 100%;
-    height: 21vh;
+    height: 26vh;
     background: transparent;
     justify-content: flex-end;
     flex-direction: column;
@@ -98,7 +78,7 @@
 .register-button {
     color: #fff;
     font-size: 1.2rem;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     background: transparent;
     border: none;
 }
