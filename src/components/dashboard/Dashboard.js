@@ -13,7 +13,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log('adsfla;skdjfalsdfj')
     let { user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     if (!user.user.loggedIn) return <div>Not logged in.</div>;

@@ -28,38 +28,44 @@ class Login extends Component {
     let { user } = this.props;
     if (user.user.loggedIn) return <Redirect to="/" />;
     return (
-      <>
-        <div className="main-container-2">
-          <form className="form">
-            <input
-              type="text"
-              value={username}
-              name="username"
-              placeholder="username"
-              onChange={this.handleChange}
-              className="inputs"
-            />
-            <input
-              type="password"
-              value={password}
-              name="password"
-              placeholder="password"
-              onChange={this.handleChange}
-              className="inputs"
-            />
-          </form>
+      <div className="gradient">
+        <div className='logo-login-parent'>
+          <img className="logo-login" alt="" />
+        </div>
+        <div className="main-container1">
+          <div className="main-container-2">
+            <form className="form">
+              <h2 className="sign-in-text">sign in</h2>
+              <input
+                type="text"
+                value={username}
+                name="username"
+                placeholder="username"
+                onChange={this.handleChange}
+                className="inputs"
+              />
+              <input
+                type="password"
+                value={password}
+                name="password"
+                placeholder="password"
+                onChange={this.handleChange}
+                className="inputs"
+              />
+            </form>
+          </div>
           <div className="login-btn-parent">
             <button onClick={this.loginUser} className="login-button">
-              login
+              enter
             </button>
           </div>
-          <div>
+          <div className="register-parent">
             <Link to="/register">
-              <button className="register-button">register</button>
+              <button className="register-button">create new account</button>
             </Link>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

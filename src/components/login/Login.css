@@ -1,12 +1,43 @@
+.gradient {
+    background-image: linear-gradient(#78CCFF 55%, #009EFF 80%);
+}
+
+.logo-login-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    width: 100vw;
+    height: 42vh;
+}
+
+.logo-login {
+    display: flex;
+    margin-top: 15px;
+    width: 85%;
+    height: 100%;
+    /* background-image: url(../../personalProjectLogo.png); */
+    background-size: cover;
+    outline: none;
+    border: none;
+}
+
 .main-container-2 {
-    background-image: linear-gradient(#78CCFF 20%, #009EFF 80%);
-    height: 100vh;
+    height: 25vh;
+    background: transparent;
     width: 100vw;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
-    padding-top: 25%;
+    padding-top: 15%;
+    padding-bottom: 10px;
+}
+
+.sign-in-text {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0px;
 }
 
 .inputs {
@@ -23,17 +54,51 @@
 ::placeholder {
     color: #999999;
     opacity: .4;
+    font-size: 1.2rem;
+}
+
+.main-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-btn-parent {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    justify-content: flex-end;
 }
 
 .login-button {
     color: #fff;
     height: 110%;
-    width: 100%;
+    width: 34%;
     font-size: 1.2rem;
-    background: #FF3658;
+    background-image: linear-gradient(40deg, #EF7B8E, #FF3658);
     border: none;
     border-radius: 30px;
-    padding: 1px 40px;
-    margin-top: 12%;
-    outline: none
+    padding: 5px 40px;
+    outline: none;
+    margin-right: 14px;
+    margin-top: 2px;
+}
+
+.register-parent {
+    display: flex;
+    width: 100%;
+    height: 21vh;
+    background: transparent;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-button {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    background: transparent;
+    border: none;
 }
