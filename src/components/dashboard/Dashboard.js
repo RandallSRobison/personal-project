@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/userReducer";
-import Header from '../header/Header'
+import Header from "../header/Header";
+// import Groups from "../groups/Groups"
 import "./Dashboard.css";
 
 class Dashboard extends Component {
@@ -20,6 +21,9 @@ class Dashboard extends Component {
       <div className="display-container">
         <Header />
         <h3>Dashboard</h3>
+        <Link to='/groups'>
+          <button className='groups-link'> my groups</button>
+        </Link>
       </div>
     );
   }

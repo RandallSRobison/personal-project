@@ -15,7 +15,7 @@ module.exports = {
     const db = req.app.get("db");
     let [newGroup] = await db.create_group([groupName, admin]);
     await db.join_group([newGroup.group_id, admin])
-    
+    res.send([newGroup]);
   },
 
   async deleteGroup(req, res) {
@@ -23,5 +23,12 @@ module.exports = {
     const db = re.app.get("db");
     let groups = await db.delete_group([+groupId, req.session.user.id]);
     res.send(groups)
-  }
+  },
+
+//   async editGroup(req, res) {
+//       let { groupId } = req.params;
+//       let { groupName, goals, goalTitle, goalDescription, goalStatus} = req.body;
+//       const db = req.app.get('db');
+//       let groups = await db.edit_group()
+//   }
 };

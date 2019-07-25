@@ -38,6 +38,11 @@
       "last 1 safari version"
     ]
   },
+  "nodemonConfig": {
+    "ignore": [
+      "src"
+    ]
+  },
   "proxy": "http://localhost:4000",
   "main": "server/index.js"
 }
