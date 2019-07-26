@@ -1,9 +1,5 @@
 import axios from "axios";
-import {
-  GET_GROUPS,
-  DELETE_GROUP,
-  CREATE_GROUP,
-} from "./actionTypes.js";
+import { GET_GROUPS, DELETE_GROUP, CREATE_GROUP } from "./actionTypes.js";
 
 const initialState = {
   groups: [],
@@ -48,6 +44,8 @@ export default function groupsReducer(state = initialState, action) {
     case DELETE_GROUP + "_REJECTED":
       return { ...state, error: payload };
     case CREATE_GROUP + "_PENDING":
+      return { ...state, error: false, groups: payload };
+    case CREATE_GROUP + "_FULFILLED":
       return { ...state, error: false, groups: payload };
     case CREATE_GROUP + "_REJECTED":
       return { ...state, error: payload };

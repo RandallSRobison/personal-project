@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const massive = require("massive");
-const ac = require("./controllers/authController");
+const uc = require("./controllers/userController");
 const gc = require("./controllers/groupsController.js");
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
 
@@ -21,15 +21,19 @@ massive(CONNECTION_STRING).then(db => {
 });
 
 //user endpoints
-app.post("/api/login", ac.login);
-app.post("/api/register", ac.register);
-app.get("/api/user", ac.getUser);
-app.delete("/api/logout", ac.logout);
+app.post("/api/login", uc.login);
+app.post("/api/register", uc.register);
+app.get("/api/user", uc.getUser);
+app.delete("/api/logout", uc.logout);
 
 //group endpoints
 app.get("/api/groups/:userId", gc.getGroups);
 app.post("/api/groups", gc.createGroup);
-app.delete('/api/groups', gc.deleteGroup)
+app.delete("/api/groups", gc.deleteGroup);
+
+//goal endpoints in groupsController
+app.put(`/api/edit/goals/:goalId`, gc.editGoal);
+app.post('/api/goals', gc.createGoal)
 
 app.listen(SERVER_PORT, () => {
   console.log(`Cruisin' for a bruisin' on port ${SERVER_PORT}`);

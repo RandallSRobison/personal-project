@@ -1,47 +1,43 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getGroups } from "../../redux/groupsReducer";
-import Group from "./Group";
+import { getGroups, deleteGroup, createGroup } from "../../redux/groupsReducer";
 
 class Groups extends Component {
   constructor() {
     super();
     this.state = {
-      groupName: ""
+      groupTitle: ""
     };
   }
 
-  componentDidMount() {
-      let (getGroups, groups, userId) = this.props;
-      if(!groups.length) {
-          getGroups(userId)
-      }
-  }
+//   componentDidMount() {
+//       let { getGroups, groups, userId} = this.props;
+//     if (!groups.length) {
+//         getGroups(userId)
+//     }
+//   }
 
   handleChange = e => {
       let { name, value } = e.target;
       this.setState({ [name]: value })
   }
 
-  editGroup = () {
-      
-  }
 render () {
-    // let {groupName } = this.state;
-    let { groups } = this.props
     return (
         <div>
-            {groups.map(group => (
-                <Group key={group.id} {...group} />
-            ))}
+            {this.props.users.user.groups.map(group => <div>{group.group_name}</div>)}
         </div>
     )
 }
 }
-
-function mapStateToProps(state)  {
+function mapStateToProps(state) {
     return {
-        userId: state.user,
-        ...state.groups
+        users: {...state.users},
+        groups: {...state.groups}
     }
 }
+
+export default connect(
+    mapStateToProps,
+    {getGroups, deleteGroup, createGroup}
+)(Groups);

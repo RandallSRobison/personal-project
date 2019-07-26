@@ -3,7 +3,6 @@ import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/userReducer";
 import Header from "../header/Header";
-// import Groups from "../groups/Groups"
 import "./Dashboard.css";
 
 class Dashboard extends Component {
