@@ -1,19 +1,35 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logout } from "../../redux/userReducer";
+import { logoutGroups } from "../../redux/groupsReducer";
+import "./Header.css";
 
-function Header(props) {
-  console.log(props);
-  return (
-    <div className="header">
-      <button className="logout-btn" onClick={props.logout}>
-        logout
-      </button>
-    </div>
-  );
+class Header extends Component {
+  logout = async () => {
+    await this.props.logout();
+    await this.props.logoutGroups();
+  };
+
+  render() {
+    console.log("prop", this.props);
+
+    return (
+      <div className="header">
+        <button className="logout-btn" onClick={this.logout}>
+          logout
+        </button>
+        <div className="drop-menu-icon" />
+      </div>
+    );
+  }
 }
-
+function mapStateToProps(state) {
+  return {
+    logout: state.logout,
+    logoutGroups: state.logoutGroups
+  };
+}
 export default connect(
-  null,
-  { logout }
+  mapStateToProps,
+  { logout, logoutGroups }
 )(Header);

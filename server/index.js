@@ -30,6 +30,7 @@ app.delete("/api/logout", uc.logout);
 app.get("/api/groups/:userId", gc.getGroups);
 app.post("/api/groups", gc.createGroup);
 app.delete("/api/groups", gc.deleteGroup);
+app.delete("/api/logout/groups", gc.logout)
 
 //goal endpoints in groupsController
 app.put(`/api/edit/goals/:goalId`, gc.editGoal);

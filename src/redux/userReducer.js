@@ -52,8 +52,7 @@ export default function(state = initialState, action) {
     case LOGIN + "_REJECTED":
       return { ...state, error: payload };
     case LOGOUT + "_FULFILLED":
-        console.log(type)
-      return { ...state, user: {}, redirect: true, error: false };
+      return { user: {}, redirect: true, error: false };
     case REGISTER + "_PENDING":
       return { ...state, redirect: false, error: false };
     case REGISTER + "_FULFILLED":

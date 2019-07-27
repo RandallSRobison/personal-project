@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_GROUPS, DELETE_GROUP, CREATE_GROUP } from "./actionTypes.js";
+import { GET_GROUPS, DELETE_GROUP, CREATE_GROUP, LOGOUT_GROUPS } from "./actionTypes.js";
 
 const initialState = {
   groups: [],
@@ -30,6 +30,13 @@ export function createGroup(userId) {
   };
 }
 
+export function logoutGroups() {
+  return {
+    type: LOGOUT_GROUPS,
+    payload: axios.delete("/api/logout/groups")
+  };
+}
+
 export default function groupsReducer(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
@@ -49,6 +56,8 @@ export default function groupsReducer(state = initialState, action) {
       return { ...state, error: false, groups: payload };
     case CREATE_GROUP + "_REJECTED":
       return { ...state, error: payload };
+    case LOGOUT_GROUPS + "_FULFILLED":
+      return { groups: [], error: false };
     default:
       return state;
   }

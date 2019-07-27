@@ -39,5 +39,10 @@ module.exports = {
     const db = req.app.get("db");
     let newGoal = await db.edit_goal([+goalId, newDesc, newTitle, groupId]);
     res.send(newGoal);
-  }
+  },
+
+  logout(req, res) {
+    req.session.destroy();
+    res.status(200).send("Your session was obliterated.");
+  },
 };

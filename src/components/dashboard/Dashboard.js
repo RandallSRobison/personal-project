@@ -17,12 +17,16 @@ class Dashboard extends Component {
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     if (!user.user.loggedIn) return <div>Not logged in.</div>;
     return (
-      <div className="display-container">
-        <Header />
-        <h3>Dashboard</h3>
-        <Link to='/groups'>
-          <button className='groups-link'> my groups</button>
-        </Link>
+      <div className="dashboard-gradient">
+        <div className="dashboard-container">
+          <nav className='nav-bar'>
+            <Header />
+          </nav>
+          <h3>Dashboard</h3>
+          <Link to="/groups">
+            <button className="groups-link"> my groups</button>
+          </Link>
+        </div>
       </div>
     );
   }

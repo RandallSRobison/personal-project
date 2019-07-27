@@ -5,7 +5,7 @@ class Group extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      groupTitle: "",
+      groupName: "",
       goals: [],
       goalTitle: "",
       goalDesc: "",
@@ -15,7 +15,6 @@ class Group extends Component {
   }
 
   handleChange = e => {
-      console.log(this.props);
     let { name, value } = e.target;
     this.setState({ [name]: value });
   };
@@ -23,7 +22,13 @@ class Group extends Component {
   flipEdit = () => this.setState({ editing: !this.state.editing });
 
   render() {
-    return <div />;
+    return (
+      <div>
+        <h2 className="group-card-name">{this.props.group_name}</h2>
+        <h4 className="group-card-goal-title">{this.props.goal_title}</h4>
+      </div>
+    );
   }
 }
 
+export default connect(null)(Group);
