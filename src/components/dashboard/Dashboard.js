@@ -18,13 +18,26 @@ class Dashboard extends Component {
     if (!user.user.loggedIn) return <div>Not logged in.</div>;
     return (
       <div className="dashboard-gradient">
+        <nav className="nav-bar">
+          <Header />
+        </nav>
         <div className="dashboard-container">
-          <nav className='nav-bar'>
-            <Header />
-          </nav>
-          <h3>Dashboard</h3>
+          <h2 className="dashboard-welcome-message">{`welcome back, ${
+            user.user.username
+          }!`}</h2>
+          <div className="dashboard-what-to-do">
+            <h4>what do you want to see?</h4>
+          </div>
+        </div>
+        <div className="dashboard-links">
           <Link to="/groups">
-            <button className="groups-link"> my groups</button>
+            <button className="dashboard-groups-link">groups</button>
+          </Link>
+          <Link to='/goals'>
+            <button className='dashboard-goals-link'>goals</button>
+          </Link>
+          <Link to='/posts'>
+            <button className='dashboard-posts-link'>posts</button>
           </Link>
         </div>
       </div>

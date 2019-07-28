@@ -34,7 +34,7 @@ class Groups extends Component {
           <Header />
         </nav>
         <Link to="/">
-          <button>dashboard</button>
+          <button className='link-to-dashboard'>dashboard</button>
         </Link>
         <div>
           {user.user.groups.map(group => (

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logout } from "../../redux/userReducer";
 import { logoutGroups } from "../../redux/groupsReducer";
+// import Toggle from "../toggle/ToggleRPC";
 import "./Header.css";
 
 class Header extends Component {
@@ -12,13 +13,11 @@ class Header extends Component {
 
   render() {
     console.log("prop", this.props);
-
     return (
       <div className="header">
         <button className="logout-btn" onClick={this.logout}>
           logout
         </button>
-        <div className="drop-menu-icon" />
       </div>
     );
   }

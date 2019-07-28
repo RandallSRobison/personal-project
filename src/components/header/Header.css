@@ -6,15 +6,22 @@
   justify-content: flex-end;
   align-items: center;
 }
+
 .logout-btn {
   color: #fff;
+  font-size: 1.2rem;
+  background: #78ccff;
+  border: none;
+  border-radius: 30px;
+  padding: 5px 20px;
+  outline: none;
+  margin-right: 5%;
 }
 
 .drop-menu-icon {
-  display: flex;
-  background-image: url(../../dropDownMenu.png);
-  background-size: 74px;
-  width: 19%;
-  height: 57%;
-  margin-right: 3%;
+  background: url(../../dropDownMenu.png) no-repeat;
+  border: none;
+  width: 80px;
+  height: 50px;
+  margin-top: 5px;
 }

@@ -1,0 +1,4 @@
+.link-to-dashboard:before {
+    content: "\f104";
+    font-family: FontAwesome
+}
