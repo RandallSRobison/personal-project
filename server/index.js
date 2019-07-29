@@ -25,16 +25,17 @@ app.post("/api/login", uc.login);
 app.post("/api/register", uc.register);
 app.get("/api/user", uc.getUser);
 app.delete("/api/logout", uc.logout);
+app.put("/api/edit/user/:userId", uc.editUser);
 
 //group endpoints
 app.get("/api/groups/:userId", gc.getGroups);
 app.post("/api/groups", gc.createGroup);
 app.delete("/api/groups", gc.deleteGroup);
-app.delete("/api/logout/groups", gc.logout)
+app.delete("/api/logout/groups", gc.logout);
 
 //goal endpoints in groupsController
 app.put(`/api/edit/goals/:goalId`, gc.editGoal);
-app.post('/api/goals', gc.createGoal)
+app.post("/api/goals", gc.createGoal);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Cruisin' for a bruisin' on port ${SERVER_PORT}`);

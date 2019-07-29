@@ -6,10 +6,32 @@ import Header from "../header/Header";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
+
+constructor(props) {
+  super(props)
+  this.state = {
+    image: props.user.user.image,
+    username: props.user.user.username,
+    editing: false
+  }
+}
   componentDidMount() {
     if (!this.props.user.user.loggedIn) {
       this.props.getUser();
     }
+  }
+
+  addDefaultImg = e => {
+    e.target.src =
+      "https://secondchancetinyhomes.org/wp-content/uploads/2016/09/empty-profile.png";
+  };
+
+  flipEdit = () => {
+    this.setState({ editing: !this.state.editing})
+  };
+
+  editUser = () => {
+    
   }
 
   render() {
@@ -22,7 +44,15 @@ class Dashboard extends Component {
           <Header />
         </nav>
         <div className="dashboard-container">
-          <h2 className="dashboard-welcome-message">{`welcome back, ${
+          <div className="image-container">
+            <img
+              onError={this.addDefaultImg}
+              src={this.state.image}
+              alt=""
+              className="dashboard-user-img"
+            />
+          </div>
+          <h2 className="dashboard-welcome-message">{`welcome, ${
             user.user.username
           }!`}</h2>
           <div className="dashboard-what-to-do">
@@ -33,11 +63,11 @@ class Dashboard extends Component {
           <Link to="/groups">
             <button className="dashboard-groups-link">groups</button>
           </Link>
-          <Link to='/goals'>
-            <button className='dashboard-goals-link'>goals</button>
+          <Link to="/goals">
+            <button className="dashboard-goals-link">goals</button>
           </Link>
-          <Link to='/posts'>
-            <button className='dashboard-posts-link'>posts</button>
+          <Link to="/posts">
+            <button className="dashboard-posts-link">posts</button>
           </Link>
         </div>
       </div>

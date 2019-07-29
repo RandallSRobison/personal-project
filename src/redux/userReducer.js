@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN, LOGOUT, REGISTER, GET_USER } from "./actionTypes.js";
+import { LOGIN, LOGOUT, REGISTER, GET_USER, EDIT_USER } from "./actionTypes.js";
 
 const initialState = {
   user: {},
@@ -19,9 +19,23 @@ export const login = (username, password) => {
   };
 };
 
-export const register = (firstName, lastName, email, username, password) => {
+export const register = (
+  firstName,
+  lastName,
+  email,
+  username,
+  password,
+  image
+) => {
   let data = axios
-    .post("/api/register", {firstName, lastName, email, username, password})
+    .post("/api/register", {
+      firstName,
+      lastName,
+      email,
+      username,
+      password,
+      image
+    })
     .then(res => res.data);
   return {
     type: REGISTER,
@@ -40,6 +54,16 @@ export const getUser = () => {
   let data = axios.get("/api/user").then(res => res.data);
   return {
     type: GET_USER,
+    payload: data
+  };
+};
+
+export const editUser = (userId, newUsername, newImage) => {
+  let data = axios
+    .put(`/api/edit/user/${userId}`, { newUsername, newImage })
+    .then(res => res.data);
+  return {
+    type: EDIT_USER,
     payload: data
   };
 };
@@ -65,6 +89,10 @@ export default function(state = initialState, action) {
       return { ...state, user: payload, error: false };
     case GET_USER + "_REJECTED":
       return { ...state, redirect: true, error: payload };
+    case EDIT_USER + "FULFILLED":
+      return { ...state, user: payload, redirect: false, error: false };
+    case EDIT_USER + "_REJECTED":
+      return { ...state, redirect: false, error: payload };
     default:
       return state;
   }

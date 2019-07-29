@@ -12,7 +12,8 @@ class Register extends Component {
       lastName: "",
       email: "",
       username: "",
-      password: ""
+      password: "",
+      image: ""
     };
   }
 
@@ -22,19 +23,39 @@ class Register extends Component {
   };
 
   registerUser = () => {
-    const { firstName, lastName, email, username, password } = this.state;
-    this.props.register(firstName, lastName, email, username, password);
+    const {
+      firstName,
+      lastName,
+      email,
+      username,
+      password,
+      image
+    } = this.state;
+    this.props.register(firstName, lastName, email, username, password, image);
   };
+
+  addDefaultImg = e => {
+    e.target.src = 'https://secondchancetinyhomes.org/wp-content/uploads/2016/09/empty-profile.png'
+  }
 
   render() {
     console.log("hit register", this.props);
-    const { firstName, lastName, email, username, password } = this.state;
+    const {
+      firstName,
+      lastName,
+      email,
+      username,
+      password,
+      image
+    } = this.state;
     const { user } = this.props;
     if (user.user.loggedIn) return <Redirect to="/" />;
     return (
       <div className="register-gradient">
         <div className="main-container-1">
           <div className="main-container2">
+            <img 
+            onError={this.addDefaultImg} src={image} alt='' className='register-image'/>
             <form className="form">
               <div>
                 <h3 className="register-text">register</h3>
@@ -76,6 +97,14 @@ class Register extends Component {
                 value={password}
                 name="password"
                 placeholder="password"
+                onChange={this.handleChange}
+                className="input"
+              />
+              <input
+                type="text"
+                value={image}
+                name="image"
+                placeholder="image url"
                 onChange={this.handleChange}
                 className="input"
               />

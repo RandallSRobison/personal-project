@@ -24,17 +24,17 @@ class Groups extends Component {
     let { name, value } = e.target;
     this.setState({ [name]: value });
   };
-
+  //testy
   render() {
-      let { user } = this.props
-      if(!user.user.loggedIn) return <Redirect to='/login' />
+    let { user } = this.props;
+    if (!user.user.loggedIn) return <Redirect to="/login" />;
     return (
       <div className="groups-container">
         <nav>
           <Header />
         </nav>
         <Link to="/">
-          <button className='link-to-dashboard'>dashboard</button>
+          <button className="link-to-dashboard">dashboard</button>
         </Link>
         <div>
           {user.user.groups.map(group => (

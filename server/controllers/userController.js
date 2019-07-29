@@ -7,7 +7,7 @@ module.exports = {
     let { username, password } = req.body;
     const db = req.app.get("db");
     let [existingUser] = await db.get_user(username);
-    let groups = await db.get_user_groups(existingUser.user_id)
+    let groups = await db.get_user_groups(existingUser.user_id);
     // console.log(existingUser);
     if (!existingUser) return res.status(401).send("Username not found");
     let result = await bcrypt.compare(password, existingUser.password);
@@ -15,6 +15,7 @@ module.exports = {
       req.session.user = {
         username: existingUser.username,
         id: existingUser.user_id,
+        image: existingUser.image,
         loggedIn: true,
         groups: groups
       };
@@ -24,7 +25,7 @@ module.exports = {
 
   async register(req, res) {
     // console.log('hit register', req.body);
-    let { firstName, lastName, email, username, password } = req.body;
+    let { firstName, lastName, email, username, password, image } = req.body;
     const db = req.app.get("db");
     let [existingUser] = await db.get_user(username);
     // console.log('existingUser', existingUser);
@@ -32,11 +33,34 @@ module.exports = {
     let salt = await bcrypt.genSalt(saltRounds);
     let hash = await bcrypt.hash(password, salt);
     // console.log('hit user');
-    let [user] = await db.create_user([firstName, lastName, email, username, hash]);
+    let [user] = await db.create_user([
+      firstName,
+      lastName,
+      email,
+      username,
+      hash,
+      image
+    ]);
     // console.log(user);
-    req.session.user = { firstName, lastName, email, username: user.username, id: user.user_id, loggedIn: true };
+    req.session.user = {
+      firstName,
+      lastName,
+      email,
+      username: user.username,
+      id: user.user_id,
+      image: user.image,
+      loggedIn: true
+    };
     // console.log('session user', req.session.user);
     res.send(req.session.user);
+  },
+
+  async editUser(req, res) {
+    let { userId } = req.params;
+    let { newUsername, newImage } = req.body;
+    const db = req.app.get("db");
+    let userInfo = await db.edit_user_info([+userId, newUsername, newImage]);
+    res.send(userInfo);
   },
 
   logout(req, res) {

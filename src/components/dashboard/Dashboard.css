@@ -9,6 +9,21 @@
   background-image: linear-gradient(#78ccff 55%, #009eff 80%);
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-user-img {
+  margin-top: 5%;
+  display: flex;
+  height: 150px;
+  width: 150px;
+  border-radius: 85px;
+  border: 3px solid #ff3658;
+}
+
 .dashboard-welcome-message {
   font-family: "Sanchez", serif;
   width: 100vw;
@@ -35,11 +50,15 @@
 
 .dashboard-links {
   background: transparent;
-  height: 20vh;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.dashboard-groups-link:hover {
+    transform: scale(1.2)
 }
 
 .dashboard-groups-link {
