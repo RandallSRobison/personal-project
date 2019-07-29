@@ -1,5 +1,12 @@
 import axios from "axios";
-import { LOGIN, LOGOUT, REGISTER, GET_USER, EDIT_USER } from "./actionTypes.js";
+import {
+  LOGIN,
+  LOGOUT,
+  REGISTER,
+  GET_USER,
+  // EDIT_USER,
+  // SAVE_USER_INFO
+} from "./actionTypes.js";
 
 const initialState = {
   user: {},
@@ -58,16 +65,6 @@ export const getUser = () => {
   };
 };
 
-export const editUser = (userId, newUsername, newImage) => {
-  let data = axios
-    .put(`/api/edit/user/${userId}`, { newUsername, newImage })
-    .then(res => res.data);
-  return {
-    type: EDIT_USER,
-    payload: data
-  };
-};
-
 export default function(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
@@ -89,10 +86,6 @@ export default function(state = initialState, action) {
       return { ...state, user: payload, error: false };
     case GET_USER + "_REJECTED":
       return { ...state, redirect: true, error: payload };
-    case EDIT_USER + "FULFILLED":
-      return { ...state, user: payload, redirect: false, error: false };
-    case EDIT_USER + "_REJECTED":
-      return { ...state, redirect: false, error: payload };
     default:
       return state;
   }

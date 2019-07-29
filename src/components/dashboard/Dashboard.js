@@ -26,18 +26,20 @@ constructor(props) {
       "https://secondchancetinyhomes.org/wp-content/uploads/2016/09/empty-profile.png";
   };
 
+  handleChange = e => {
+    let { name, value } = e.target;
+    this.setState({ [name]: value })
+  };
+
   flipEdit = () => {
     this.setState({ editing: !this.state.editing})
   };
-
-  editUser = () => {
-    
-  }
 
   render() {
     let { user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     if (!user.user.loggedIn) return <div>Not logged in.</div>;
+
     return (
       <div className="dashboard-gradient">
         <nav className="nav-bar">
