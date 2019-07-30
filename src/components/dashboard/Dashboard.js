@@ -1,23 +1,31 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getUser } from "../../redux/userReducer";
+import { getUser, editUser } from "../../redux/userReducer";
 import Header from "../header/Header";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
-
-constructor(props) {
-  super(props)
-  this.state = {
-    image: props.user.user.image,
-    username: props.user.user.username,
-    editing: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: props.user.user.image,
+      username: props.user.user.username,
+      editing: false
+    };
   }
-}
   componentDidMount() {
     if (!this.props.user.user.loggedIn) {
       this.props.getUser();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({
+        image: this.props.user.user.image,
+        username: this.props.user.user.username
+      });
     }
   }
 
@@ -28,15 +36,24 @@ constructor(props) {
 
   handleChange = e => {
     let { name, value } = e.target;
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   };
 
   flipEdit = () => {
-    this.setState({ editing: !this.state.editing})
+    this.setState({ editing: !this.state.editing });
+  };
+
+  editUserInfo = () => {
+    let { id } = this.props.user.user;
+    let { image, username } = this.state;
+    this.props.editUser(id, image, username);
+    this.flipEdit();
   };
 
   render() {
+    console.log(this.props);
     let { user } = this.props;
+    let { image, username, editing } = this.state;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     if (!user.user.loggedIn) return <div>Not logged in.</div>;
 
@@ -72,6 +89,36 @@ constructor(props) {
             <button className="dashboard-posts-link">posts</button>
           </Link>
         </div>
+        <div className="das-edit-container">
+          {editing ? (
+            <div>
+              <input
+                name="image"
+                type="text"
+                value={image}
+                placeholder="new image url"
+                className="dash-edit-inputs"
+                onChange={this.handleChange}
+              />
+              <input
+                name="username"
+                type="text"
+                value={username}
+                placeholder="new username"
+                className="dash-edit-inputs"
+                onChange={this.handleChange}
+              />
+              <button onClick={this.editUserInfo}>save</button>
+              <button onClick={this.flipEdit}>cancel</button>
+            </div>
+          ) : (
+            <div>
+              <button onClick={this.flipEdit} className="dash-edit-btn">
+                edit image or username
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
@@ -83,5 +130,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getUser }
+  { getUser, editUser }
 )(Dashboard);

@@ -56,11 +56,14 @@ module.exports = {
   },
 
   async editUser(req, res) {
+    console.log(req.params);
     let { userId } = req.params;
-    let { newUsername, newImage } = req.body;
+    let { username, image } = req.body;
+
     const db = req.app.get("db");
-    let userInfo = await db.edit_user_info([+userId, newUsername, newImage]);
-    res.send(userInfo);
+    let [userInfo] = await db.edit_user_info([+userId, username, image]);
+    let user = { ...userInfo, id: userInfo.user_id, loggedIn: true };
+    res.send(user);
   },
 
   logout(req, res) {

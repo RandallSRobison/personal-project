@@ -13,18 +13,11 @@ class Groups extends Component {
     };
   }
 
-  //   componentDidMount() {
-  //       let { getGroups, groups, userId} = this.props;
-  //     if (!groups.length) {
-  //         getGroups(userId)
-  //     }
-  //   }
-
   handleChange = e => {
     let { name, value } = e.target;
     this.setState({ [name]: value });
   };
-  //testy
+  
   render() {
     let { user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;

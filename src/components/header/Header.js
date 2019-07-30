@@ -12,7 +12,7 @@ class Header extends Component {
   };
 
   render() {
-    console.log("prop", this.props);
+    // console.log("props", this.props);
     return (
       <div className="header">
         <button className="logout-btn" onClick={this.logout}>

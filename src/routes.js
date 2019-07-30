@@ -13,7 +13,6 @@ export default (
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     <Route path="/groups" component={Groups} />
-    <Route path='/goals' component={Groups} />
     <Route path='/posts' component={Posts} />
   </Switch>
 );
