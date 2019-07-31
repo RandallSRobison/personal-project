@@ -1,34 +1,42 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { getGoals } from "../../redux/goalsReducer";
+import Goal from "../goal/Goal";
+import Header from "../header/Header";
 
 class Group extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      groupName: "",
-      goals: [],
-      goalTitle: "",
-      goalDesc: "",
-      goalStatus: true,
-      editing: false
-    };
+  componentDidMount() {
+    let { getGoals, match } = this.props;
+    getGoals(match.params.groupId);
   }
 
-  handleChange = e => {
-    let { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
-  flipEdit = () => this.setState({ editing: !this.state.editing });
-
   render() {
+    let { goals } = this.props;
     return (
       <div>
-        <h2 className="group-card-name">{this.props.group_name}</h2>
-        <h4 className="group-card-goal-title">{this.props.goal_title}</h4>
+        <nav>
+          <Header />
+        </nav>
+        <h3 className="group-group-name">
+          {goals.groupWithGoalsObj.group_name}
+        </h3>
+        {goals.groupWithGoalsObj.goals
+          ? goals.groupWithGoalsObj.goals.map(goal => {
+              return <Goal key={goal.goal_id} {...goal} />;
+            })
+          : null}
       </div>
     );
   }
 }
 
-export default connect(null)(Group);
+function mapStateToProps(state) {
+  return {
+    goals: { ...state.goals }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { getGoals }
+)(Group);

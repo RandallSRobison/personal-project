@@ -3,7 +3,8 @@ const express = require("express");
 const session = require("express-session");
 const massive = require("massive");
 const uc = require("./controllers/userController");
-const gc = require("./controllers/groupsController.js");
+const gc = require("./controllers/groupsController");
+const glc = require("./controllers/goalsController");
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
 
 const app = express();
@@ -33,9 +34,9 @@ app.post("/api/groups", gc.createGroup);
 app.delete("/api/groups", gc.deleteGroup);
 app.delete("/api/logout/groups", gc.logout);
 
-//goal endpoints in groupsController
-app.put(`/api/edit/goals/:goalId`, gc.editGoal);
-app.post("/api/goals", gc.createGoal);
+//goal endpoints
+app.put(`/api/edit/goals/:goalId`, glc.editGoal);
+app.get("/api/goals/:groupId", glc.getGoals);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Cruisin' for a bruisin' on port ${SERVER_PORT}`);

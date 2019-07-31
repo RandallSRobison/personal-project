@@ -89,7 +89,7 @@ class Dashboard extends Component {
             <button className="dashboard-posts-link">posts</button>
           </Link>
         </div>
-        <div className="das-edit-container">
+        <div className="dash-edit-container">
           {editing ? (
             <div>
               <input
@@ -108,13 +108,19 @@ class Dashboard extends Component {
                 className="dash-edit-inputs"
                 onChange={this.handleChange}
               />
-              <button onClick={this.editUserInfo}>save</button>
-              <button onClick={this.flipEdit}>cancel</button>
+              <div className='dash-sa-ca-container'>
+                <button className="dash-sa-ca-btn" onClick={this.editUserInfo}>
+                  save
+                </button>
+                <button className="dash-sa-ca-btn" onClick={this.flipEdit}>
+                  cancel
+                </button>
+              </div>
             </div>
           ) : (
             <div>
               <button onClick={this.flipEdit} className="dash-edit-btn">
-                edit image or username
+                edit
               </button>
             </div>
           )}

@@ -56,10 +56,8 @@ module.exports = {
   },
 
   async editUser(req, res) {
-    console.log(req.params);
     let { userId } = req.params;
     let { username, image } = req.body;
-
     const db = req.app.get("db");
     let [userInfo] = await db.edit_user_info([+userId, username, image]);
     let user = { ...userInfo, id: userInfo.user_id, loggedIn: true };

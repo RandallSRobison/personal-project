@@ -1,23 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getGroups, deleteGroup, createGroup } from "../../redux/groupsReducer";
-import Group from "./Group";
 import Header from "../header/Header";
 import { Redirect, Link } from "react-router-dom";
 
 class Groups extends Component {
-  constructor() {
-    super();
-    this.state = {
-      groupName: ""
-    };
-  }
 
   handleChange = e => {
     let { name, value } = e.target;
     this.setState({ [name]: value });
   };
-  
+
   render() {
     let { user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
@@ -31,13 +24,16 @@ class Groups extends Component {
         </Link>
         <div>
           {user.user.groups.map(group => (
-            <Group key={group.id} {...group} />
+            <Link key={group.group_id} to={`/group/${group.group_id}`}>
+              {group.group_name}
+            </Link>
           ))}
         </div>
       </div>
     );
   }
 }
+
 function mapStateToProps(state) {
   return {
     user: { ...state.users },

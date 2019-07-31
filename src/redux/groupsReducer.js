@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_GROUPS, DELETE_GROUP, CREATE_GROUP, LOGOUT_GROUPS } from "./actionTypes.js";
+import {
+  GET_GROUPS,
+  DELETE_GROUP,
+  CREATE_GROUP,
+  LOGOUT_GROUPS,
+} from "./actionTypes.js";
 
 const initialState = {
   groups: [],
