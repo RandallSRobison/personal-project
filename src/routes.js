@@ -5,6 +5,7 @@ import Login from "../src/components/login/Login";
 import Register from "../src/components/register/Register";
 import Groups from "../src/components/groups/Groups";
 import Group from "../src/components/groups/Group";
+import UserGoals from '../src/components/goal/UserGoals'
 
 export default (
   <Switch>
@@ -14,5 +15,6 @@ export default (
     <Route path="/register" component={Register} />
     <Route path="/groups" component={Groups} />
     <Route path="/group/:groupId" component={Group} />
+    <Route path="/goals" component={UserGoals} />
   </Switch>
 );

@@ -1,8 +1,14 @@
 import axios from "axios";
-import { GET_GOALS, EDIT_GOAL } from "./actionTypes.js";
+import {
+  GET_GOALS,
+  EDIT_GOAL,
+  CLEAR_GOALS,
+  GET_USER_GOALS
+} from "./actionTypes.js";
 
 const initialState = {
   groupWithGoalsObj: {},
+  userWithGoalsObj: {},
   error: false
 };
 
@@ -22,6 +28,21 @@ export function editGoal(goalId) {
   };
 }
 
+export function clearPrevGoals() {
+  return {
+    type: CLEAR_GOALS,
+    payload: {}
+  };
+}
+
+export function getGoalsByUser(userId) {
+  let data = axios.get(`/api/usergoals/${userId}`).then(res => res.data);
+  return {
+    type: GET_USER_GOALS,
+    payload: data
+  };
+}
+
 export default function goalsReducer(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
@@ -33,6 +54,12 @@ export default function goalsReducer(state = initialState, action) {
       return { ...state, error: payload };
     case EDIT_GOAL + "_FULFILLED":
       return { ...state, groupWithGoalsObj: payload[0], error: false };
+    case CLEAR_GOALS:
+      return { ...state, groupWithGoalsObj: payload };
+    case GET_USER_GOALS + "_FULFILLED":
+      return { ...state, userWithGoalsObj: payload, error: false };
+    case GET_USER_GOALS + "_REJECTED":
+      return { ...state, error: payload };
     default:
       return state;
   }

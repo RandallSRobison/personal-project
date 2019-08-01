@@ -1,4 +1,70 @@
-.link-to-dashboard:before {
-    content: "\f104";
-    font-family: FontAwesome
+.groups-gradient {
+  background-image: linear-gradient(#78ccff 55%, #009eff 80%);
+}
+
+.groups-container {
+  height: 100vh;
+  width: 100vw;
+  background: transparent;
+  align-items: center;
+}
+
+.group-card-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-2-container {
+  width: 100vw;
+  height: 8vh;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.link-to-dashboard {
+  text-decoration: none;
+  display: flex;
+  color: #fff;
+  font-size: 1.2rem;
+  background-image: linear-gradient(40deg, #ef7b8e, #ff3658);
+  border: none;
+  border-radius: 30px;
+  padding: 5px 25px;
+  outline: none;
+}
+
+.create-group-button {
+  display: flex;
+  color: #fff;
+  font-size: 1.2rem;
+  background-image: linear-gradient(40deg, #ef7b8e, #ff3658);
+  border: none;
+  border-radius: 30px;
+  padding: 5px 25px;
+  outline: none;
+}
+
+.group-card-container {
+  /* height: 100vh; */
+  width: 90vw;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  font-family: "Sanchez", serif;
+  margin-top: 5%;
+  height: 16vh;
+  width: 90%;
+  background: #fff;
+  padding-left: 5%;
+  color: #78ccff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
 }

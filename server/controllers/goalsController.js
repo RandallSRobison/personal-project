@@ -4,7 +4,8 @@ module.exports = {
     const db = req.app.get("db");
     let goals = await db.get_goals_by_group(groupId);
     if (!goals[0]) {
-      return res.status(401).send("No goals for this group detected.")};
+      return res.status(401).send("No goals for this group detected.");
+    }
     res.status(200).send(goals);
   },
 
@@ -22,5 +23,15 @@ module.exports = {
     const db = req.app.get("db");
     let newGoal = await db.edit_goal([+goalId, newDesc, newTitle, groupId]);
     res.send(newGoal);
+  },
+
+  async getGoalsByUser(req, res) {
+    let { userId } = req.params;
+    const db = req.app.get("db");
+    let userGoals = await db.get_goals_by_user(userId);
+    if (!userGoals[0]) {
+      return res.status(401).send("No goals for this user detected.");
+    }
+    res.status(200).send(userGoals);
   }
 };

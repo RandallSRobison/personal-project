@@ -37,6 +37,7 @@ app.delete("/api/logout/groups", gc.logout);
 //goal endpoints
 app.put(`/api/edit/goals/:goalId`, glc.editGoal);
 app.get("/api/goals/:groupId", glc.getGoals);
+app.get("/api/usergoals/:userId", glc.getGoalsByUser);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Cruisin' for a bruisin' on port ${SERVER_PORT}`);

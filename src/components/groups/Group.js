@@ -1,13 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getGoals } from "../../redux/goalsReducer";
+import { getGoals, clearPrevGoals } from "../../redux/goalsReducer";
 import Goal from "../goal/Goal";
 import Header from "../header/Header";
 
 class Group extends Component {
+  constructor(){
+    super()
+    this.state ={
+      editing: false
+    }
+  }
+
   componentDidMount() {
     let { getGoals, match } = this.props;
     getGoals(match.params.groupId);
+  }
+
+  componentWillUnmount(){
+    this.props.clearPrevGoals()
   }
 
   render() {
@@ -38,5 +49,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getGoals }
+  { getGoals, clearPrevGoals }
 )(Group);
