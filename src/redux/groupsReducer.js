@@ -4,6 +4,7 @@ import {
   DELETE_GROUP,
   CREATE_GROUP,
   LOGOUT_GROUPS,
+  GET_ALL_GROUPS
 } from "./actionTypes.js";
 
 const initialState = {
@@ -19,6 +20,14 @@ export function getGroups(userId) {
   };
 }
 
+export function getAllGroups() {
+  let data = axios.get("/api/allgroups").then(res => res.data);
+  return {
+    type: GET_ALL_GROUPS,
+    payload: data
+  };
+}
+
 export function deleteGroup(groupId) {
   let data = axios.delete(`/api/groups/${groupId}`).then(res => res.data);
   return {
@@ -27,8 +36,8 @@ export function deleteGroup(groupId) {
   };
 }
 
-export function createGroup(userId) {
-  let data = axios.post(`/api/groups/${userId}`).then(res => res.data);
+export function createGroup() {
+  let data = axios.post("/api/groups/form").then(res => res.data);
   return {
     type: CREATE_GROUP,
     payload: data
@@ -63,6 +72,12 @@ export default function groupsReducer(state = initialState, action) {
       return { ...state, error: payload };
     case LOGOUT_GROUPS + "_FULFILLED":
       return { groups: [], error: false };
+    case GET_ALL_GROUPS + "_PENDING":
+      return { ...state, error: false };
+    case GET_ALL_GROUPS + "_FULFILLED":
+      return { ...state, groups: payload, error: false };
+    case GET_ALL_GROUPS + "_REJECTED":
+      return { ...state, error: payload };
     default:
       return state;
   }

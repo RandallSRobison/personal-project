@@ -80,7 +80,10 @@ class Dashboard extends Component {
         </div>
         <div className="dashboard-links">
           <Link to="/groups">
-            <button className="dashboard-groups-link">groups</button>
+            <button className="dashboard-groups-link">my groups</button>
+          </Link>
+          <Link to="/allgroups">
+            <button className="dashboard-groups-link">all groups</button>
           </Link>
           <Link to="/goals">
             <button className="dashboard-goals-link">goals</button>
@@ -108,7 +111,7 @@ class Dashboard extends Component {
                 className="dash-edit-inputs"
                 onChange={this.handleChange}
               />
-              <div className='dash-sa-ca-container'>
+              <div className="dash-sa-ca-container">
                 <button className="dash-sa-ca-btn" onClick={this.editUserInfo}>
                   save
                 </button>

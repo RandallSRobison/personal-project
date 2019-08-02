@@ -6,7 +6,8 @@ import Register from "../src/components/register/Register";
 import Groups from "../src/components/groups/Groups";
 import Group from "../src/components/groups/Group";
 import UserGoals from "../src/components/goal/UserGoals";
-// import Form from "../src/components/form/Form";
+import Form from "../src/components/form/Form";
+import AllGroups from "../src/components/groups/AllGroups";
 
 export default (
   <Switch>
@@ -17,6 +18,7 @@ export default (
     <Route path="/groups" component={Groups} />
     <Route path="/group/:groupId" component={Group} />
     <Route path="/goals" component={UserGoals} />
-    {/* <Route path="/form" component={Form} /> */}
+    <Route path="/form" component={Form} />
+    <Route path="/allgroups" component={AllGroups} />
   </Switch>
 );

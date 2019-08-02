@@ -10,5 +10,6 @@ export const CLEAR_GOALS = "CLEAR_GOALS";
 export const CREATE_GROUP = "CREATE_GROUP";
 export const DELETE_GROUP = "DELETE_GROUPS";
 export const LOGOUT_GROUPS = "LOGOUT_GROUPS";
+export const GET_ALL_GROUPS = "GET_ALL_GROUPS";
 export const GET_USER_GOALS = "GET_USER_GOALS";
 export const SAVE_USER_INFO = "SAVE_USER_INFO";

@@ -27,34 +27,21 @@ class UserGoals extends Component {
           </Link>
         </div>
         <div className="user-goal-card-container">
-          <div className="user-goal-card">
-            <div id='ug-name'>Selling NYC - Group Name</div>
-            <div>Goal Title</div>
-            <div>Goal Description</div>
-          </div>
-          <div className="user-goal-card">
-            <div id='ug-name'>Selling NYC - Group Name</div>
-            <div>Goal Title</div>
-            <div>Goal Description</div>
-          </div>
-          <div className="user-goal-card">
-            <div id='ug-name'>Selling NYC - Group Name</div>
-            <div>Goal Title</div>
-            <div>Goal Description</div>
-          </div>
-          <div className="user-goal-card">
-            <div id='ug-name'>Selling NYC - Group Name</div>
-            <div>Goal Title</div>
-            <div>Goal Description</div>
-          </div>
-        </div>
-        <div>
-          {goals.userWithGoalsObj.goals_in_group
-            ? goals.userWithGoalsObj.goals_in_group.map(goal => {
+          {goals.userWithGoalsObj.length
+            ? goals.userWithGoalsObj.map(group => {
                 return (
-                  <div>
-                    {goal.goal_title}
-                    {goal.goal_description}
+                  <div className="user-goal-card">
+                    <Link className="ug-name" to={`/group/${group.group_id}`}>
+                      <div className='actual-name'>{group.group_name}</div>
+                    </Link>
+                    {group.goals_in_group.map(goal => {
+                      return (
+                        <div>
+                          <ul className='user-goal-title'>{goal.goal_title}</ul>
+                          <p className='user-goal-description'>{goal.goal_description}</p>
+                        </div>
+                      );
+                    })}
                   </div>
                 );
               })

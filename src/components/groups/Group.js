@@ -7,14 +7,6 @@ import { Link } from "react-router-dom";
 import "./Group.css";
 
 class Group extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // goalTitle: props.goals.groupWithGoalsObj.goals.goal_title,
-      // goalDescription: props.goals.groupWithGoalsObj.goal_description,
-      editing: false
-    };
-  }
 
   componentDidMount() {
     let { getGoals, match } = this.props;
