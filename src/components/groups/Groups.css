@@ -36,7 +36,8 @@
   outline: none;
 }
 
-.create-group-button {
+.link-to-form {
+  text-decoration: none;
   display: flex;
   color: #fff;
   font-size: 1.2rem;
@@ -56,15 +57,20 @@
   align-items: center;
 }
 
+.card-name {
+  border-bottom: 1px solid #ff3658;
+}
+
 .card {
   font-family: "Sanchez", serif;
   margin-top: 5%;
   height: 16vh;
   width: 90%;
   background: #fff;
-  padding-left: 5%;
+  padding: 5%;
   color: #78ccff;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   border-radius: 5px;
+  
 }

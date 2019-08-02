@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getGoalsByUser } from "../../redux/goalsReducer";
 import Header from "../header/Header";
 import { Redirect, Link } from "react-router-dom";
+import "./UserGoals.css";
 
 class UserGoals extends Component {
   componentDidMount() {
@@ -13,26 +14,52 @@ class UserGoals extends Component {
 
   render() {
     console.log("props for UserGroup", this.props);
-    let { goals, groups, user } = this.props;
+    let { goals, user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
-
-    let groupsIdArray = [];
-    if (goals.userWithGoalsObj.length) {
-      goals.userWithGoalsObj.map(group => groupsIdArray.push(group.group_id));
-    }
-
-
-    groupsIdArray = [...new Set(groupsIdArray)]
-
-
     return (
-      <div>
+      <div className="user-goal-container">
         <nav>
           <Header />
         </nav>
-        <div>{
-
-        }</div>
+        <div className="nav-2-container">
+          <Link className="link-to-dashboard" to="/">
+            {`< dashboard`}
+          </Link>
+        </div>
+        <div className="user-goal-card-container">
+          <div className="user-goal-card">
+            <div id='ug-name'>Selling NYC - Group Name</div>
+            <div>Goal Title</div>
+            <div>Goal Description</div>
+          </div>
+          <div className="user-goal-card">
+            <div id='ug-name'>Selling NYC - Group Name</div>
+            <div>Goal Title</div>
+            <div>Goal Description</div>
+          </div>
+          <div className="user-goal-card">
+            <div id='ug-name'>Selling NYC - Group Name</div>
+            <div>Goal Title</div>
+            <div>Goal Description</div>
+          </div>
+          <div className="user-goal-card">
+            <div id='ug-name'>Selling NYC - Group Name</div>
+            <div>Goal Title</div>
+            <div>Goal Description</div>
+          </div>
+        </div>
+        <div>
+          {goals.userWithGoalsObj.goals_in_group
+            ? goals.userWithGoalsObj.goals_in_group.map(goal => {
+                return (
+                  <div>
+                    {goal.goal_title}
+                    {goal.goal_description}
+                  </div>
+                );
+              })
+            : null}
+        </div>
       </div>
     );
   }

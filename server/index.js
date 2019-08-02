@@ -30,7 +30,8 @@ app.put("/api/edit/user/:userId", uc.editUser);
 
 //group endpoints
 app.get("/api/groups/:userId", gc.getGroups);
-app.post("/api/groups", gc.createGroup);
+app.get("/api/allgroups", gc.getAllGroups);
+app.post("/api/groups/form", gc.createGroup);
 app.delete("/api/groups", gc.deleteGroup);
 app.delete("/api/logout/groups", gc.logout);
 

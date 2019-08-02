@@ -29,12 +29,13 @@ class Goal extends Component {
   render() {
     // console.log("zis is de prop i ker aboot", this.props);
     return (
-      <div>
         <div>
-          <h5 className="goal-description">{this.props.goal_description}</h5>
-          {this.props.goal_title}
+          <div>
+            <h5 className="goal-description">{this.props.goal_description}</h5>
+            {this.props.goal_title}
+          </div>
         </div>
-      </div>
+
     );
   }
 }

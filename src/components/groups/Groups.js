@@ -24,7 +24,9 @@ class Groups extends Component {
             <Link className="link-to-dashboard" to="/">
               {`< dashboard`}
             </Link>
-            <button className="create-group-button">create group</button>
+            <Link className="link-to-form" to='/form'>
+            <div>create group</div>
+            </Link>
           </div>
           <div className="group-card-main">
             <div className="group-card-container">
@@ -34,7 +36,7 @@ class Groups extends Component {
                   key={group.group_id}
                   to={`/group/${group.group_id}`}
                 >
-                  {group.group_name}
+                  <div className='card-name'>{group.group_name}</div>
                 </Link>
               ))}
             </div>

@@ -1,0 +1,22 @@
+.nav-3-container {
+    width: 100vw;
+    height: 8vh;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .link-to-groups {
+    text-decoration: none;
+    display: flex;
+    color: #fff;
+    font-size: 1.2rem;
+    background-image: linear-gradient(40deg, #ef7b8e, #ff3658);
+    border: none;
+    border-radius: 30px;
+    padding: 5px 25px;
+    outline: none;
+  }
+
+  
