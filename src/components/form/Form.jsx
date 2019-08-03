@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Header from "../header/Header";
+import { createGroup } from "../../redux/groupsReducer"
 import { Redirect, Link } from "react-router-dom";
 import "./Form.css";
 
@@ -18,6 +19,7 @@ class Form extends Component {
   };
 
   render() {
+    console.log('props in form', this.props);
     let { groupName } = this.state;
     let { user } = this.props;
     if (!user.user.loggedIn) return <Redirect to='/login' />
@@ -35,8 +37,8 @@ class Form extends Component {
             placeholder="group"
             onChange={this.handleChange}
           />
-          <Link to='/'>
-          <button>create group</button>
+          <Link to='/'>{console.log('state and props in Form', this.props, this.state)}
+          <button onClick={() => this.props.createGroup(this.state.groupName, this.props.user.user.id)}>create group</button>
           <button>cancel</button>
           </Link>
         </form>
@@ -52,5 +54,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    { createGroup }
 )(Form);

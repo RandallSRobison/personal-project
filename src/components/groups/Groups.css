@@ -1,12 +1,8 @@
 .groups-gradient {
-  background-image: linear-gradient(#78ccff 55%, #009eff 80%);
-}
-
-.groups-container {
-  height: 100vh;
   width: 100vw;
-  background: transparent;
+  background: transparent; 
   align-items: center;
+  background-image: linear-gradient(#78ccff 55%, #009eff 80%);
 }
 
 .group-card-main {
@@ -49,7 +45,6 @@
 }
 
 .group-card-container {
-  /* height: 100vh; */
   width: 90vw;
   background: transparent;
   display: flex;
@@ -64,7 +59,6 @@
 .card {
   font-family: "Sanchez", serif;
   margin-top: 5%;
-  height: 16vh;
   width: 90%;
   background: #fff;
   padding: 5%;
@@ -72,5 +66,4 @@
   text-decoration: none;
   font-size: 1.4rem;
   border-radius: 5px;
-  
 }

@@ -36,8 +36,9 @@ export function deleteGroup(groupId) {
   };
 }
 
-export function createGroup() {
-  let data = axios.post("/api/groups/form").then(res => res.data);
+export function createGroup(groupName, admin) {
+  let data = axios.post("/api/form", { groupName, admin}).then(res => res.data);
+  console.log('hit reducer', data);
   return {
     type: CREATE_GROUP,
     payload: data
@@ -64,10 +65,8 @@ export default function groupsReducer(state = initialState, action) {
       return { ...state, groups: payload, error: false };
     case DELETE_GROUP + "_REJECTED":
       return { ...state, error: payload };
-    case CREATE_GROUP + "_PENDING":
-      return { ...state, error: false, groups: payload };
     case CREATE_GROUP + "_FULFILLED":
-      return { ...state, error: false, groups: payload };
+      return { ...state, error: false, groups: payload  };
     case CREATE_GROUP + "_REJECTED":
       return { ...state, error: payload };
     case LOGOUT_GROUPS + "_FULFILLED":

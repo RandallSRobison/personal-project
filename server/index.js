@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const massive = require("massive");
+const sc = require("./controllers/stripeController")
 const uc = require("./controllers/userController");
 const gc = require("./controllers/groupsController");
 const glc = require("./controllers/goalsController");
@@ -31,14 +32,17 @@ app.put("/api/edit/user/:userId", uc.editUser);
 //group endpoints
 app.get("/api/groups/:userId", gc.getGroups);
 app.get("/api/allgroups", gc.getAllGroups);
-app.post("/api/groups/form", gc.createGroup);
-app.delete("/api/groups", gc.deleteGroup);
+app.post("/api/form", gc.createGroup, gc.getAllGroups);
+app.delete(`/api/groups/:groupId`, gc.deleteGroup);
 app.delete("/api/logout/groups", gc.logout);
 
 //goal endpoints
 app.put(`/api/edit/goals/:goalId`, glc.editGoal);
 app.get("/api/goals/:groupId", glc.getGoals);
 app.get("/api/usergoals/:userId", glc.getGoalsByUser);
+
+//stripe endpoints
+app.post("/api/payment", sc.pay)
 
 app.listen(SERVER_PORT, () => {
   console.log(`Cruisin' for a bruisin' on port ${SERVER_PORT}`);

@@ -22,6 +22,7 @@ class AllGroups extends Component {
   };
 
   render() {
+    console.log("f dis shizz", this.props);
     let { user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     return (
@@ -41,8 +42,28 @@ class AllGroups extends Component {
           <div className="group-card-main">
             <div className="group-card-container">
               {this.props.groups.groups.map(group => (
-                <div>{group.group_name}</div>
-                <div></div>
+                <>
+                  <div>{group.group_name}</div>
+                  <div>
+                    {group.users_in_group.map(user => {
+                      if (user.user_id === group.admin_id) {
+                        return (
+                          <div>
+                            <div>group admin: {user.username}</div>
+                            <img src={user.image} alt="" />
+                          </div>
+                        );
+                      }
+                    })}
+                  </div>
+                  <div>
+                    {group.users_in_group.map(user => {
+                      if (user.user_id !== group.admin_id) {
+                        return <ul>members:{user.username}</ul>;
+                      }
+                    })}
+                  </div>
+                </>
               ))}
             </div>
           </div>
