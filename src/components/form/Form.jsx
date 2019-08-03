@@ -29,7 +29,7 @@ class Form extends Component {
           <Header />
         </nav>
         <form>
-          <div>give the group a name</div>
+          <div>Give The Group A Name</div>
           <input
             type="text"
             name="groupName"
@@ -39,8 +39,8 @@ class Form extends Component {
           />
           <Link to='/'>{console.log('state and props in Form', this.props, this.state)}
           <button onClick={() => this.props.createGroup(this.state.groupName, this.props.user.user.id)}>create group</button>
-          </Link>
           <button>cancel</button>
+          </Link>
         </form>
       </div>
     );

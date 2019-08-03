@@ -13,12 +13,15 @@ class StripeDonation extends Component {
   }
 
   onToken = token => {
+      console.log(token);
     let { amount } = this.state;
     amount /= 1000;
+    token.card = void 0
     axios
       .post("api/payment", { token, amount: this.state.amount })
       .then(res => {
-        alert(`Thank you so much for your donation of ${amount}!`);
+          console.log(res);
+        alert(`Thank you so much for your donation!`);
       });
   };
 
@@ -26,21 +29,21 @@ class StripeDonation extends Component {
     return (
       <div className="main-wrapper">
         <div className="donation-thanks-wrapper">
-          <div className="donation-thanks">THANK YOU</div>
+          <div className="donation-thanks">THANK YOU!</div>
         </div>
         <div className="donation-wrapper">
           <input
             className="donation-input"
             value={this.state.amount}
             type="number"
-            placeholder="$ no decimals"
+            placeholder="$ (No Decimals)"
             onChange={e => this.setState({ amount: +e.target.value })}
           />
           <StripeCheckout
             name="Selfless Donation"
             image={imageUrl}
             description="I really appreciate all of them!"
-            stripeKey={process.env.REACT_APP_PUBLISH_KEY}
+            stripeKey={process.env.REACT_APP_STRIPE_PUBLISH_KEY}
             token={this.onToken}
             amount={this.state.amount}
             currency="USD"
@@ -51,6 +54,11 @@ class StripeDonation extends Component {
             zipCode={false}
           />
         </div>
+        <div className="stripe-b2log-parent">
+            <Link to="/login">
+              <button className="stripe-b2log-btn">Back to Home</button>
+            </Link>
+          </div>
       </div>
     );
   }

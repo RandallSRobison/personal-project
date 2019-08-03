@@ -22,7 +22,6 @@ class AllGroups extends Component {
   };
 
   render() {
-    console.log("f dis shizz", this.props);
     let { user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     return (
@@ -33,24 +32,24 @@ class AllGroups extends Component {
           </nav>
           <div className="nav-2-container">
             <Link className="link-to-dashboard" to="/">
-              {`< dashboard`}
+              {`< Dashboard`}
             </Link>
             <Link className="link-to-form" to="/form">
-              <div>create group</div>
+              <div>Create Group</div>
             </Link>
           </div>
           <div className="group-card-main">
             <div className="group-card-container">
               {this.props.groups.groups.map(group => (
-                <>
-                  <div>{group.group_name}</div>
+                < div className='card'>
+                  <div className='card-name'>{group.group_name}</div>
                   <div>
                     {group.users_in_group.map(user => {
                       if (user.user_id === group.admin_id) {
                         return (
-                          <div>
-                            <div>group admin: {user.username}</div>
-                            <img src={user.image} alt="" />
+                          <div className='users-in-g-wrapper'>
+                            <div >Group Admin: {user.username}</div>
+                            <img className='user-img' src={user.image} alt="" />
                           </div>
                         );
                       }
@@ -59,11 +58,11 @@ class AllGroups extends Component {
                   <div>
                     {group.users_in_group.map(user => {
                       if (user.user_id !== group.admin_id) {
-                        return <ul>members:{user.username}</ul>;
+                        return <ul>Other Members:{user.username}</ul>;
                       }
                     })}
                   </div>
-                </>
+                </div>
               ))}
             </div>
           </div>

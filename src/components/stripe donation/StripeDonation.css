@@ -1,9 +1,7 @@
 .main-wrapper {
   background: #fafafa;
   min-height: 100vh;
-  background-image: linear-gradient(#00cbb3 30%, #c9ffc6 80%);
-
-
+  background-image: linear-gradient(#78ccff 55%, #009eff 80%);
 }
 
 .donation-wrapper {
@@ -26,7 +24,7 @@
 .donation-thanks {
   font-family: "Sanchez", serif;
   display: flex;
-  color: #fff;
+  color: #000;
   margin-top: 80px;
   margin-bottom: 212px;
   font-size: 3rem;
@@ -34,16 +32,46 @@
 
 .donation-input {
   height: 7vh;
-  width: 45vw;
+  width: 60vw;
   display: flex;
   margin-bottom: 15%;
   border-radius: 5px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  border: none;
   padding-left: 10px;
   font-size: 1rem;
 }
 
-::placeholder {
+.donation-input::placeholder {
   font-family: "Sanchez", serif;
   color: #ddd;
+}
+
+.stripe-b2log-parent {
+  display: flex;
+  width: 100%;
+  height: 25vh;
+  background: transparent;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stripe-b2log-btn {
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  font-size: 1.2rem;
+  background: #ff3658;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 25px;
+  outline: none;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.stripe-b2log-btn:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }

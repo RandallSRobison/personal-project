@@ -25,7 +25,7 @@
   display: flex;
   color: #fff;
   font-size: 1.2rem;
-  background-image: linear-gradient(40deg, #ef7b8e, #ff3658);
+  background: #ff3658;
   border: none;
   border-radius: 5px;
   padding: 8px 25px;
@@ -43,7 +43,7 @@
   display: flex;
   color: #fff;
   font-size: 1.2rem;
-  background-image: linear-gradient(40deg, #ef7b8e, #ff3658);
+  background: #ff3658;
   border: none;
   border-radius: 5px;
   padding: 8px 25px;
@@ -97,4 +97,15 @@
 .user-img{
   height: 65px;
   width: 65px;
+  border-radius: 100%;
+}
+
+.no-groups-card {
+  border-radius: 5px;
+  width: 90vw;
+  background: #fff;
+}
+
+.no-groups-to-dashoard {
+  
 }

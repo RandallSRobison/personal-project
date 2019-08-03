@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { login } from "../../redux/userReducer";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
+import logo from "./reachtest.png";
 import "./Login.css";
 
 class Login extends Component {
@@ -9,7 +10,7 @@ class Login extends Component {
     super();
     this.state = {
       username: "",
-      password: "",
+      password: ""
     };
   }
 
@@ -35,7 +36,7 @@ class Login extends Component {
         <div className="main-container1">
           <div className="main-container-2">
             <form className="form">
-              <h2 className="sign-in-text">sign in</h2>
+              <h2 className="sign-in-text">Sign In</h2>
               <input
                 type="text"
                 value={username}
@@ -56,17 +57,17 @@ class Login extends Component {
           </div>
           <div className="login-btn-parent">
             <button onClick={this.loginUser} className="login-button">
-              enter
+              Enter
             </button>
           </div>
           <div className="donate-parent">
-            <Link className="donate-button" to='/donation'>
-            <div >donate to developer</div>
+            <Link className="donate-button" to="/donation">
+              <div>Donate To Developer</div>
             </Link>
           </div>
           <div className="register-parent">
             <Link to="/register">
-              <button className="register-button">create new account</button>
+              <button className="register-button">Create New Account</button>
             </Link>
           </div>
         </div>

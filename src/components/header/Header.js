@@ -16,7 +16,7 @@ class Header extends Component {
     return (
       <div className="header">
         <button className="logout-btn" onClick={this.logout}>
-          logout
+          Logout
         </button>
       </div>
     );

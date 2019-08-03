@@ -23,7 +23,7 @@ class UserGoals extends Component {
         </nav>
         <div className="nav-2-container">
           <Link className="link-to-dashboard" to="/">
-            {`< dashboard`}
+            {`< Dashboard`}
           </Link>
         </div>
         <div className="user-goal-card-container">
@@ -32,13 +32,15 @@ class UserGoals extends Component {
                 return (
                   <div className="user-goal-card">
                     <Link className="ug-name" to={`/group/${group.group_id}`}>
-                      <div className='actual-name'>{group.group_name}</div>
+                      <div className="actual-name">{group.group_name}</div>
                     </Link>
                     {group.goals_in_group.map(goal => {
                       return (
                         <div>
-                          <ul className='user-goal-title'>{goal.goal_title}</ul>
-                          <p className='user-goal-description'>{goal.goal_description}</p>
+                          <ul className="user-goal-title">{goal.goal_title}</ul>
+                          <p className="user-goal-description">
+                            {goal.goal_description}
+                          </p>
                         </div>
                       );
                     })}

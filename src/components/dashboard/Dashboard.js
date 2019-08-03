@@ -55,7 +55,7 @@ class Dashboard extends Component {
     let { user } = this.props;
     let { image, username, editing } = this.state;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
-    if (!user.user.loggedIn) return <div>Not logged in.</div>;
+    if (!user.user.loggedIn) return <div>Not Logged In.</div>;
 
     return (
       <div className="dashboard-gradient">
@@ -71,23 +71,26 @@ class Dashboard extends Component {
               className="dashboard-user-img"
             />
           </div>
-          <h2 className="dashboard-welcome-message">{`welcome, ${
+          <h2 className="dashboard-welcome-message">{`Welcome, ${
             user.user.username
           }!`}</h2>
           <div className="dashboard-what-to-do">
-            <h4>what do you want to see?</h4>
+            <h4>What Do You Want To See?</h4>
           </div>
           
         </div>
         <div className="dashboard-links">
           <Link to="/groups">
-            <button className="dashboard-groups-link">my groups</button>
+            <button className="dashboard-groups-link">My Groups</button>
           </Link>
           <Link to="/allgroups">
-            <button className="dashboard-groups-link">all groups</button>
+            <button className="dashboard-groups-link">All Groups</button>
           </Link>
           <Link to="/goals">
-            <button className="dashboard-goals-link">goals</button>
+            <button className="dashboard-goals-link">Goals</button>
+          </Link>
+          <Link to="/groups">
+            <button className="dashboard-posts-link">Posts</button>
           </Link>
           {editing ? (
             <div>
@@ -119,13 +122,11 @@ class Dashboard extends Component {
           ) : (
             <div>
               <button onClick={this.flipEdit} className="dash-edit-btn">
-                edit
+                Edit
               </button>
             </div>
           )}
-          
         </div>
-        
       </div>
     );
   }

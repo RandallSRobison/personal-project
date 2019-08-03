@@ -58,7 +58,7 @@ class Register extends Component {
             onError={this.addDefaultImg} src={image} alt='' className='register-image'/>
             <form className="form">
               <div>
-                <h3 className="register-text">register</h3>
+                <h3 className="register-text">Register</h3>
               </div>
               <input
                 type="text"
@@ -117,7 +117,7 @@ class Register extends Component {
           </div>
           <div className="b2log-parent">
             <Link to="/login">
-              <button className="b2log-btn">back to sign in</button>
+              <button className="b2log-btn">Back To Sign In</button>
             </Link>
           </div>
         </div>

@@ -27,7 +27,7 @@ class Group extends Component {
         </nav>
         <div className="nav-group-container">
           <Link className="link-to-groups" to="/groups">
-            {`< groups`}
+            {`< Groups`}
           </Link>
         </div>
         <div className="group-card-holder">

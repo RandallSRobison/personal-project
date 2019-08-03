@@ -8,7 +8,7 @@ import "./Groups.css";
 
 class Groups extends Component {
   componentDidMount() {
-  this.props.getUser()
+    this.props.getUser();
   }
 
   deleteGroup = () => {
@@ -38,38 +38,49 @@ class Groups extends Component {
           </nav>
           <div className="nav-2-container">
             <Link className="link-to-dashboard" to="/">
-              {`< dashboard`}
+              {`< Dashboard`}
             </Link>
             <Link className="link-to-form" to="/form">
-              <div onClick={this.createGroup}>create group</div>
+              <div onClick={this.createGroup}>Create Group</div>
             </Link>
           </div>
           <div className="group-card-main">
             <div className="group-card-container">
-              {user.user.groups.map(group => (
-                <>
-                  <Link
-                    className="card"
-                    key={group.group_id}
-                    to={`/group/${group.group_id}`}
-                  >
-                    <div className="card-name">{group.group_name}</div>
-                    {currentUserInGroup
-                      .filter(item => item.group_id === group.group_id)
-                      .map(item => {
-                        return item.users_in_group.map(user => (
-                          <div className='users-in-g-wrapper'>
-                            <div>{user.username}</div>
-                            <img className='user-img'
-                              src={user.image}
-                              alt=""
-                            />
-                          </div>
-                        ));
-                      })}
+              {user.user.groups ? (
+                user.user.groups.map(group => (
+                  <>
+                    <Link
+                      className="card"
+                      key={group.group_id}
+                      to={`/group/${group.group_id}`}
+                    >
+                      <div className="card-name">{group.group_name}</div>
+                      {currentUserInGroup
+                        .filter(item => item.group_id === group.group_id)
+                        .map(item => {
+                          return item.users_in_group.map(user => (
+                            <div className="users-in-g-wrapper">
+                              <div>{user.username}</div>
+                              <img
+                                className="user-img"
+                                src={user.image}
+                                alt=""
+                              />
+                            </div>
+                          ));
+                        })}
+                    </Link>
+                  </>
+                ))
+              ) : (
+                <div className="no-groups-card">
+                  You haven't joined any groups! Click here to checkout the All
+                  Groups page and get started.
+                  <Link className="no-groups-to-dashboard" to="/">
+                    {`< Dashboard`}
                   </Link>
-                </>
-              ))}}
+                </div>
+              )}
             </div>
           </div>
         </div>
