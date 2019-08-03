@@ -8,6 +8,7 @@ import Group from "../src/components/groups/Group";
 import UserGoals from "../src/components/goal/UserGoals";
 import Form from "../src/components/form/Form";
 import AllGroups from "../src/components/groups/AllGroups";
+import StripeDonation from '../src/components/stripe donation/StripeDonation'
 
 export default (
   <Switch>
@@ -20,5 +21,6 @@ export default (
     <Route path="/goals" component={UserGoals} />
     <Route path="/form" component={Form} />
     <Route path="/allgroups" component={AllGroups} />
+    <Route path='/donation' component={StripeDonation} />
   </Switch>
 );

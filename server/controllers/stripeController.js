@@ -1,4 +1,4 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
 module.exports = {
   pay(req, res) {
@@ -6,7 +6,7 @@ module.exports = {
       token: { id },
       amount
     } = req.body;
-    amount *= 100;
+    // amount *= 1000;
     stripe.charges.create(
       {
         amount: amount,

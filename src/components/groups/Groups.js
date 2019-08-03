@@ -58,10 +58,9 @@ class Groups extends Component {
                       .filter(item => item.group_id === group.group_id)
                       .map(item => {
                         return item.users_in_group.map(user => (
-                          <div>
+                          <div className='users-in-g-wrapper'>
                             <div>{user.username}</div>
-                            <img
-                              style={{ height: "50px", width: "50px" }}
+                            <img className='user-img'
                               src={user.image}
                               alt=""
                             />
@@ -70,7 +69,7 @@ class Groups extends Component {
                       })}
                   </Link>
                 </>
-              ))}
+              ))}}
             </div>
           </div>
         </div>

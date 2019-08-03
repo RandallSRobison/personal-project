@@ -39,8 +39,8 @@ class Form extends Component {
           />
           <Link to='/'>{console.log('state and props in Form', this.props, this.state)}
           <button onClick={() => this.props.createGroup(this.state.groupName, this.props.user.user.id)}>create group</button>
-          <button>cancel</button>
           </Link>
+          <button>cancel</button>
         </form>
       </div>
     );

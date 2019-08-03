@@ -77,6 +77,7 @@ class Dashboard extends Component {
           <div className="dashboard-what-to-do">
             <h4>what do you want to see?</h4>
           </div>
+          
         </div>
         <div className="dashboard-links">
           <Link to="/groups">
@@ -88,11 +89,6 @@ class Dashboard extends Component {
           <Link to="/goals">
             <button className="dashboard-goals-link">goals</button>
           </Link>
-          <Link to="/posts">
-            <button className="dashboard-posts-link">posts</button>
-          </Link>
-        </div>
-        <div className="dash-edit-container">
           {editing ? (
             <div>
               <input
@@ -127,7 +123,9 @@ class Dashboard extends Component {
               </button>
             </div>
           )}
+          
         </div>
+        
       </div>
     );
   }

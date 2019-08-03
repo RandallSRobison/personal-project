@@ -9,7 +9,7 @@ class Login extends Component {
     super();
     this.state = {
       username: "",
-      password: ""
+      password: "",
     };
   }
 
@@ -29,7 +29,7 @@ class Login extends Component {
     if (user.user.loggedIn) return <Redirect to="/" />;
     return (
       <div className="gradient">
-        <div className='logo-login-parent'>
+        <div className="logo-login-parent">
           <img className="logo-login" alt="" />
         </div>
         <div className="main-container1">
@@ -58,6 +58,11 @@ class Login extends Component {
             <button onClick={this.loginUser} className="login-button">
               enter
             </button>
+          </div>
+          <div className="donate-parent">
+            <Link className="donate-button" to='/donation'>
+            <div >donate to developer</div>
+            </Link>
           </div>
           <div className="register-parent">
             <Link to="/register">

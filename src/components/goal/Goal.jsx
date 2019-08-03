@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { editGoal } from "../../redux/goalsReducer";
+import { Link } from "react-router-dom";
+import "./Goal.css";
 
 class Goal extends Component {
   constructor(props) {
@@ -27,15 +29,13 @@ class Goal extends Component {
   };
 
   render() {
-    // console.log("zis is de prop i ker aboot", this.props);
     return (
+      <div>
         <div>
-          <div>
-            <h5 className="goal-description">{this.props.goal_description}</h5>
-            {this.props.goal_title}
-          </div>
+          <h5 className="goal-description">{this.props.goal_description}</h5>
+          {this.props.goal_title}
         </div>
-
+      </div>
     );
   }
 }

@@ -1,50 +1,57 @@
 .group-container {
-    background-image: linear-gradient(#78ccff 55%, #009eff 80%);
+  height: 100vh;
+  background-image: linear-gradient(#78ccff 55%, #009eff 80%);
 }
 
 .nav-group-container {
-    width: 100vw;
-    height: 8vh;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: baseline;
-    margin-left: 5%;
-  }
-  
-  .link-to-groups {
-    text-decoration: none;
-    display: flex;
-    color: #fff;
-    font-size: 1.2rem;
-    background-image: linear-gradient(40deg, #ef7b8e, #ff3658);
-    border: none;
-    border-radius: 30px;
-    padding: 5px 25px;
-    outline: none;
-  }
-
-#gg-name {
-    border-bottom: 1px solid #ff3658;
+  width: 100vw;
+  height: 8vh;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  margin-left: 5%;
 }
 
-  .group-card-holder {
-    width: 100vw;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .gg-card {
-    font-family: "Sanchez", serif;
-    margin-top: 5%;
-    height: 40vh;
-    width: 85%;
-    background: #fff;
-    padding: 5%;
-    color: #78ccff;
-    text-decoration: none;
-    font-size: 1.4rem;
-    border-radius: 5px;
-  }
+.link-to-groups {
+  text-decoration: none;
+  display: flex;
+  color: #fff;
+  font-size: 1.2rem;
+  background-image: linear-gradient(40deg, #ef7b8e, #ff3658);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 25px;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.link-to-groups:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#gg-name {
+  border-bottom: 1px solid #ff3658;
+}
+
+.group-card-holder {
+  width: 100vw;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+.gg-card {
+  font-family: "Sanchez", serif;
+  margin-top: 5%;
+  width: 85%;
+  background: #fff;
+  padding: 5%;
+  color: #78ccff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  border-radius: 5px;
+}
