@@ -42,7 +42,7 @@ class AllGroups extends Component {
             <div className="group-card-container">
               {this.props.groups.groups.map(group => (
                 < div className='card'>
-                  <div className='card-name'>{group.group_name}</div>
+                  <div id="content-link">{group.group_name}</div>
                   <div>
                     {group.users_in_group.map(user => {
                       if (user.user_id === group.admin_id) {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logout } from "../../redux/userReducer";
 import { logoutGroups } from "../../redux/groupsReducer";
-// import Toggle from "../toggle/ToggleRPC";
+import logo from "./collectiveLogoHeader.png";
 import "./Header.css";
 
 class Header extends Component {
@@ -15,6 +15,7 @@ class Header extends Component {
     // console.log("props", this.props);
     return (
       <div className="header">
+          <img src={logo} className="main-logo-header" />
         <button className="logout-btn" onClick={this.logout}>
           Logout
         </button>

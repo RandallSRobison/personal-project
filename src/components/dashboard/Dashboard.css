@@ -99,7 +99,6 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-
 @media (max-width: 768px) {
   .dashboard-links {
     width: 27%;
@@ -123,7 +122,7 @@
 }
 @media (max-width: 320px) {
   .dashboard-links {
-    width: 54%;
+    width: 35%;
     font-size: 1.2rem;
     padding: 6px
   }
@@ -190,13 +189,18 @@
   font-size: 1rem;
 }
 
+@media (max-width: 320px) {
+  .dash-edit-inputs {
+    width: 95%;
+  }
+}
+
 .dash-sa-ca-container {
   display: flex;
   justify-content: space-between;
 }
 
 .dash-sa-ca-btn {
-  /* margin-top: 1%; */
   display: flex;
   color: #fff;
   font-size: 1.2rem;
@@ -211,4 +215,10 @@
 
 .dash-sa-ca-btn:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 320px) {
+  .dash-sa-ca-btn {
+    width: 48%;
+  }
 }

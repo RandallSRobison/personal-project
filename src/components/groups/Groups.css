@@ -110,6 +110,7 @@
 }
 
 #content-link {
+  color: #666;
   border-bottom: 1px solid #ff3658;
 }
 
@@ -187,7 +188,4 @@
   border-radius: 5px;
   width: 90vw;
   background: #fff;
-}
-
-.no-groups-to-dashboard {
 }

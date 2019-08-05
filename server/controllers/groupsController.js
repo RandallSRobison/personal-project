@@ -28,7 +28,7 @@ module.exports = {
     await db.join_group([newGroup.group_id, admin]);
     let groups = await db.get_user_groups(req.session.user.id);
     req.session.user.groups = groups
-    next()
+    // next()
   },
 
   async deleteGroup(req, res, next) {

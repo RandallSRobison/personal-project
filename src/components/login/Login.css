@@ -92,14 +92,12 @@
 .login-btn-parent {
   display: flex;
   width: 100%;
-  height: auto;
   background: transparent;
   justify-content: flex-end;
 }
 
 .login-button {
   color: #fff;
-  height: 110%;
   width: 34%;
   font-size: 1.2rem;
   background: #ff3658;
@@ -108,7 +106,6 @@
   padding: 8px 40px;
   outline: none;
   margin-right: 14px;
-  margin-top: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -185,7 +182,7 @@
 .donate-parent {
   display: flex;
   width: 100%;
-  height: 10vh;
+  height: 8vh;
   background: transparent;
   justify-content: flex-end;
   flex-direction: column;
@@ -203,7 +200,7 @@
 .register-parent {
   display: flex;
   width: 100%;
-  height: 15vh;
+  height: 8vh;
   background: transparent;
   justify-content: flex-end;
   flex-direction: column;
@@ -214,14 +211,18 @@
   font-family: "Sanchez", serif;
   color: #fff;
   font-size: 1.2rem;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
   background: transparent;
   border: none;
 }
 
-.element-wrapper {
+.logo-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 45vh;
+  margin-top: 5%;
+}
+
+.main-logo {
+  height: 150px;
+  width: 150px;
 }

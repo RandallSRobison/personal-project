@@ -1,7 +1,23 @@
 .main-wrapper {
-  background: #fafafa;
-  min-height: 100vh;
+  height: 100vh;
   background-image: linear-gradient(#78ccff 55%, #009eff 80%);
+}
+.donate-btn {
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  font-size: 1.2rem;
+  background: #ff3658;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 25px;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.donate-btn:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .donation-wrapper {
@@ -29,37 +45,55 @@
   }
 }
 
-.donation-thanks-wrapper {
+.thanks-wrapper {
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-@media (max-width: 2366px) {
-  .donation-thanks-wrapper {
-    height: 30vh;
-  }
-}
-@media (max-width: 1024px) {
-  .donation-thanks-wrapper {
-    height: 40vh;
-  }
-}
-@media (max-width: 320px) {
-  .donation-thanks-wrapper {
-    height: 50vh;
-  }
+  justify-content: center;
 }
 
 .donation-thanks {
   font-family: "Sanchez", serif;
   display: flex;
   color: #000;
-  margin-top: 80px;
-  margin-bottom: 212px;
   font-size: 3rem;
 }
 
+.dollar-sign-wrapper{
+  display: flex;
+}
+
+.dollar-sign {
+  font-family: 'Sanchez', sans-serif;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 2633px) {
+  .dollar-sign {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 1024px) {
+  .dollar-sign {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .dollar-sign {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 414px) {
+  .dollar-sign {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 375px) {
+  .dollar-sign {
+    font-size: 1.6rem;
+  }
+}
 .donation-input {
   height: 7vh;
   width: 60vw;
@@ -135,7 +169,6 @@
   border-radius: 5px;
   padding: 8px 25px;
   outline: none;
-
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
