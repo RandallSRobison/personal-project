@@ -28,7 +28,9 @@ module.exports = {
   async getGoalsByUser(req, res) {
     let { userId } = req.params;
     const db = req.app.get("db");
+    console.log("this is userId", req.params);
     let userGoals = await db.get_goals_by_user(userId);
+    console.log("this is user goals :", userGoals);
     if (!userGoals[0]) {
       return res.status(401).send("No goals for this user detected.");
     }

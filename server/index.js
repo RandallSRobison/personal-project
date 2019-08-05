@@ -36,6 +36,7 @@ app.get("/api/allgroups", gc.getAllGroups);
 app.post("/api/form", gc.createGroup, gc.getAllGroups);
 app.delete(`/api/groups/:groupId`, gc.deleteGroup, gc.getAllGroups);
 app.delete("/api/logout/groups", gc.logout);
+app.post("/api/join", gc.joinGroup);
 
 //goal endpoints
 app.put(`/api/edit/goals/:goalId`, glc.editGoal);

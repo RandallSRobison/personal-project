@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   getAllGroups,
-  deleteGroup,
   createGroup
 } from "../../redux/groupsReducer";
 import Header from "../header/Header";
@@ -11,7 +10,6 @@ import "./Groups.css";
 
 class AllGroups extends Component {
   componentDidMount() {
-    console.log("hello", this.props);
     let { getAllGroups } = this.props;
     getAllGroups();
   }
@@ -41,15 +39,16 @@ class AllGroups extends Component {
           <div className="group-card-main">
             <div className="group-card-container">
               {this.props.groups.groups.map(group => (
-                < div className='card'>
+                <div className="card">
                   <div id="content-link">{group.group_name}</div>
+                  <button className="group-join-btn">Join</button>
                   <div>
                     {group.users_in_group.map(user => {
                       if (user.user_id === group.admin_id) {
                         return (
-                          <div className='users-in-g-wrapper'>
-                            <div >Group Admin: {user.username}</div>
-                            <img className='user-img' src={user.image} alt="" />
+                          <div className="users-in-g-wrapper">
+                            <div>Group Admin: {user.username}</div>
+                            <img className="user-img" src={user.image} alt="" />
                           </div>
                         );
                       }
@@ -81,5 +80,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getAllGroups, deleteGroup, createGroup }
+  { getAllGroups, createGroup }
 )(AllGroups);

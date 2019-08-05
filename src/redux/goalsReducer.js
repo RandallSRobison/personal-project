@@ -3,7 +3,8 @@ import {
   GET_GOALS,
   EDIT_GOAL,
   CLEAR_GOALS,
-  GET_USER_GOALS
+  GET_USER_GOALS,
+  LOGOUT_GOALS
 } from "./actionTypes.js";
 
 const initialState = {
@@ -43,6 +44,13 @@ export function getGoalsByUser(userId) {
   };
 }
 
+export function logoutGoals() {
+  return {
+    type: LOGOUT_GOALS,
+    payload: axios.delete("/api/logout/groups")
+  };
+}
+
 export default function goalsReducer(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
@@ -60,6 +68,8 @@ export default function goalsReducer(state = initialState, action) {
       return { ...state, userWithGoalsObj: payload, error: false };
     case GET_USER_GOALS + "_REJECTED":
       return { ...state, error: payload };
+    case LOGOUT_GOALS + "_FULFILLED":
+      return { groupWithGoalsObj: {}, userWithGoalsObj: {}, error: false};
     default:
       return state;
   }

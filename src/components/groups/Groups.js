@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getGroups, deleteGroup, createGroup } from "../../redux/groupsReducer";
+import {
+  getGroups,
+  deleteGroup,
+  createGroup,
+  getAllGroups
+} from "../../redux/groupsReducer";
 import { getUser } from "../../redux/userReducer";
 import Header from "../header/Header";
 import { Redirect, Link } from "react-router-dom";
@@ -9,6 +14,7 @@ import "./Groups.css";
 class Groups extends Component {
   componentDidMount() {
     this.props.getUser();
+    this.props.getAllGroups();
   }
 
   handleDeleteGroup = groupId => {
@@ -107,5 +113,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getGroups, deleteGroup, createGroup, getUser }
+  { getGroups, deleteGroup, createGroup, getUser, getAllGroups }
 )(Groups);

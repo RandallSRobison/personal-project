@@ -21,22 +21,27 @@ module.exports = {
   },
 
   async createGroup(req, res, next) {
-    console.log('hit controller', req.body);
     let { groupName, admin } = req.body;
     const db = req.app.get("db");
     let [newGroup] = await db.create_group([groupName, admin]);
     await db.join_group([newGroup.group_id, admin]);
     let groups = await db.get_user_groups(req.session.user.id);
-    req.session.user.groups = groups
+    req.session.user.groups = groups;
     // next()
   },
 
+  async joinGroup(req, res) {
+    let { groupId, userId } = req.body;
+    const db = req.app.get("db");
+    let joinedGroup = await db.join_group(groupId, userId);
+    res.send(joinedGroup);
+  },
+
   async deleteGroup(req, res, next) {
-    console.log('hit delete controller', req.params);
     let { groupId } = req.params;
     const db = req.app.get("db");
     let deletedGroups = await db.delete_group(groupId);
-    next()
+    next();
   },
 
   logout(req, res) {

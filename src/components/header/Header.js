@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logout } from "../../redux/userReducer";
 import { logoutGroups } from "../../redux/groupsReducer";
+import { logoutGoals } from "../../redux/goalsReducer"
 import logo from "./collectiveLogoHeader.png";
 import "./Header.css";
 
@@ -9,6 +10,7 @@ class Header extends Component {
   logout = async () => {
     await this.props.logout();
     await this.props.logoutGroups();
+    await this.props.logoutGoals()
   };
 
   render() {
@@ -26,10 +28,11 @@ class Header extends Component {
 function mapStateToProps(state) {
   return {
     logout: state.logout,
-    logoutGroups: state.logoutGroups
+    logoutGroups: state.logoutGroups,
+    logoutGoals: state.logoutGoals
   };
 }
 export default connect(
   mapStateToProps,
-  { logout, logoutGroups }
+  { logout, logoutGroups, logoutGoals }
 )(Header);
