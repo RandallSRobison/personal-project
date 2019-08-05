@@ -31,11 +31,12 @@ module.exports = {
     next()
   },
 
-  async deleteGroup(req, res) {
+  async deleteGroup(req, res, next) {
+    console.log('hit delete controller', req.params);
     let { groupId } = req.params;
     const db = req.app.get("db");
-    let groups = await db.delete_group(groupId);
-    res.send(groups);
+    let deletedGroups = await db.delete_group(groupId);
+    next()
   },
 
   logout(req, res) {

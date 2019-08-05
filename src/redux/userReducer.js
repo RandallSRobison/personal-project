@@ -69,6 +69,7 @@ export const editUser = (userId, image, username) => {
   };
 };
 
+
 export default function(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {

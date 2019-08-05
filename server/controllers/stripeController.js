@@ -10,7 +10,7 @@ module.exports = {
     stripe.charges.create(
       {
         amount: amount,
-        currency: "usd",
+        currency: "USD",
         source: id,
         description: "test charge"
       },

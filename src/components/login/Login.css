@@ -35,6 +35,48 @@
   font-size: 1rem;
 }
 
+@media (max-width: 2386px) {
+  .inputs {
+    width: 30vw;
+    margin-top: 6%;
+  }
+}
+@media (max-width: 1386px) {
+  .inputs {
+    width: 30vw;
+    margin-top: 6%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .inputs {
+    width: 40vw;
+    margin-top: 6%;
+    height: 7vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .inputs {
+    width: 45vw;
+    margin-top: 6%;
+
+  }
+}
+
+@media (max-width: 414px) {
+  .inputs {
+    width: 80vw;
+    height: 8vh;
+  }
+}
+@media (max-width: 320px) {
+  .inputs {
+    width: 90vw;
+    height: 8vh;
+  }
+}
+
 ::placeholder {
   font-family: "Sanchez", serif;
   color: #ff3658;
@@ -75,10 +117,66 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-@media (min-width: 1366px) {
+@media (max-width: 2386px) {
   .login-button {
-    width: 25%;
-    margin-right: 4.8%;
+    width: 10%;
+    margin-right: 34.5%;
+    margin-top: 3%;
+    height: 7vh;
+    justify-content: center;
+  }
+}
+@media (max-width: 1386px) {
+  .login-button {
+    width: 10%;
+    margin-right: 44.5%;
+    margin-top: 3%;
+    height: 7vh;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .login-button {
+    width: 15%;
+    margin-right: 42.5%;
+    margin-top: 3%;
+    height: 5vh;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-button {
+    width: 16%;
+    margin-right: 41.8%;
+    margin-top: 3%;
+    height: 5vh;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 414px) {
+  .login-button {
+    width: 40%;
+    margin-right: 30%;
+    margin-top: 3%;
+    height: 7vh;
+  }
+}
+@media (max-width: 375px) {
+  .login-button {
+    width: 40%;
+    margin-right: 30%;
+    margin-top: 3%;
+    height: 7vh;
+  }
+}
+
+@media (max-width: 320px) {
+  .login-button {
+    width: 40%;
+    margin-right: 3.7%;
     margin-top: 3%;
     height: 7vh;
   }

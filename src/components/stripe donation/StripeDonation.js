@@ -15,10 +15,9 @@ class StripeDonation extends Component {
   onToken = token => {
       console.log(token);
     let { amount } = this.state;
-    amount /= 1000;
     token.card = void 0
     axios
-      .post("api/payment", { token, amount: this.state.amount })
+      .post("api/payment", { token, amount })
       .then(res => {
           console.log(res);
         alert(`Thank you so much for your donation!`);
@@ -36,8 +35,9 @@ class StripeDonation extends Component {
             className="donation-input"
             value={this.state.amount}
             type="number"
-            placeholder="$ (No Decimals)"
+            placeholder="$ (in cents)"
             onChange={e => this.setState({ amount: +e.target.value })}
+            
           />
           <StripeCheckout
             name="Selfless Donation"

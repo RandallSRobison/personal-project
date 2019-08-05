@@ -1,26 +1,5 @@
-/* .goals-navigation-wrapper {
-  width: 100vw;
-  height: 8vh;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+.goal-title {
+  display: list-item;
+  list-style-type: circle;
+  list-style-position: inside;
 }
-
-.goals-link-to-dashboard {
-  text-decoration: none;
-  display: flex;
-  color: #fff;
-  font-size: 1.2rem;
-  background: #ff3658;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 25px;
-  outline: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.goals-link-to-dashboard:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-} */

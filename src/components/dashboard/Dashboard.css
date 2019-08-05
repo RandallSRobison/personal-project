@@ -48,62 +48,85 @@
   align-items: center;
 }
 
-.dashboard-links {
+.dashboard-links-wrapper {
   background: transparent;
   height: 30vh;
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.dashboard-groups-link {
+@media (max-width: 768px) {
+  .dashboard-links-wrapper {
+    height: 45vh;
+    flex-direction: column;
+  }
+}
+@media (max-width: 414px) {
+  .dashboard-links-wrapper {
+    height: 45vh;
+  }
+}
+@media (max-width: 375px) {
+  .dashboard-links-wrapper {
+    height: 40vh;
+  }
+}
+@media (max-width: 320px) {
+  .dashboard-links-wrapper {
+    height: 40vh;
+  }
+}
+
+.dashboard-links {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
   color: #fff;
+  width: 10%;
   font-size: 1.2rem;
   background: #ff3658;
   border: none;
   border-radius: 5px;
-  padding: 8px 27px;
+  padding: 15px 27px;
   outline: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.dashboard-groups-link:hover {
+.dashboard-links:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.dashboard-goals-link {
-  color: #fff;
-  font-size: 1.2rem;
-  background: #ff3658;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 50px;
-  outline: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
 
-.dashboard-goals-link:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+@media (max-width: 768px) {
+  .dashboard-links {
+    width: 27%;
+    font-size: 1.7rem;
+    padding: 6px;
+  }
 }
-
-.dashboard-posts-link {
-  color: #fff;
-  font-size: 1.2rem;
-  background: #ff3658;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 48px;
-  outline: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+@media (max-width: 414px) {
+  .dashboard-links {
+    width: 49%;
+    font-size: 1.7rem;
+    padding: 6px;
+  }
 }
-
-.dashboard-posts-link:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+@media (max-width: 375px) {
+  .dashboard-links {
+    width: 54%;
+    font-size: 1.2rem;
+    padding: 6px;
+  }
+}
+@media (max-width: 320px) {
+  .dashboard-links {
+    width: 54%;
+    font-size: 1.2rem;
+    padding: 6px
+  }
 }
 
 .dash-edit-container {
@@ -129,6 +152,31 @@
 
 .dash-edit-btn:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 2633px) {
+  .dash-edit-btn {
+    width: 100%;
+    padding: 15px 50px;
+  }
+}
+@media (max-width: 1024px) {
+  .dash-edit-btn {
+    width: 100%;
+    padding: 15px 36px;
+  }
+}
+@media (max-width: 768px) {
+  .dash-edit-btn {
+    width: 100%;
+    padding: 8px 53px;
+  }
+}
+@media (max-width: 320px) {
+  .dash-edit-btn {
+    width: 100%;
+    padding: 8px 36px;
+  }
 }
 
 .dash-edit-inputs {

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { login } from "../../redux/userReducer";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import logo from "./reachtest.png";
 import "./Login.css";
+import logo from './rentOps.png'
 
 class Login extends Component {
   constructor() {
@@ -30,9 +30,10 @@ class Login extends Component {
     if (user.user.loggedIn) return <Redirect to="/" />;
     return (
       <div className="gradient">
-        <div className="logo-login-parent">
+        <>
+        <img src={logo} className="element"/>
+        </>
           <img className="logo-login" alt="" />
-        </div>
         <div className="main-container1">
           <div className="main-container-2">
             <form className="form">

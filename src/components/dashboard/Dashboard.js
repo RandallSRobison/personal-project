@@ -79,18 +79,18 @@ class Dashboard extends Component {
           </div>
           
         </div>
-        <div className="dashboard-links">
-          <Link to="/groups">
-            <button className="dashboard-groups-link">My Groups</button>
+        <div className="dashboard-links-wrapper">
+          <Link className="dashboard-links" to="/groups">
+            <div >My Groups</div>
           </Link>
-          <Link to="/allgroups">
-            <button className="dashboard-groups-link">All Groups</button>
+          <Link className="dashboard-links" to="/allgroups">
+            <div >All Groups</div>
           </Link>
-          <Link to="/goals">
-            <button className="dashboard-goals-link">Goals</button>
+          <Link className="dashboard-links" to="/goals">
+            <div >Goals</div>
           </Link>
-          <Link to="/groups">
-            <button className="dashboard-posts-link">Posts</button>
+          <Link className="dashboard-links" to="/groups">
+            <div >Posts</div>
           </Link>
           {editing ? (
             <div>
@@ -122,7 +122,7 @@ class Dashboard extends Component {
           ) : (
             <div>
               <button onClick={this.flipEdit} className="dash-edit-btn">
-                Edit
+                Edit Your Info
               </button>
             </div>
           )}

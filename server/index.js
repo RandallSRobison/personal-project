@@ -33,7 +33,7 @@ app.put("/api/edit/user/:userId", uc.editUser);
 app.get("/api/groups/:userId", gc.getGroups);
 app.get("/api/allgroups", gc.getAllGroups);
 app.post("/api/form", gc.createGroup, gc.getAllGroups);
-app.delete(`/api/groups/:groupId`, gc.deleteGroup);
+app.delete(`/api/groups/:groupId`, gc.deleteGroup, gc.getAllGroups);
 app.delete("/api/logout/groups", gc.logout);
 
 //goal endpoints

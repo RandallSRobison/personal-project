@@ -14,6 +14,7 @@ class Goal extends Component {
     };
   }
 
+
   handleChange = e => {
     let { name, value } = e.target;
     this.setState({ [name]: value });
@@ -27,14 +28,11 @@ class Goal extends Component {
   render() {
     return (
       <div>
-        <nav className="goals-navigation-wrapper">
-          <Link className="goals-link-to-dashboard" to="/">
-            {`< Dashboefggfgard`}
-          </Link>
-        </nav>
         <div>
-          <h5 className="goal-description">{this.props.goal_description}</h5>
+          <h3 className="goal-title">
           {this.props.goal_title}
+          </h3>
+          {this.props.goal_description}
         </div>
       </div>
     );

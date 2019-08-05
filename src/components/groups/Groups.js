@@ -11,8 +11,9 @@ class Groups extends Component {
     this.props.getUser();
   }
 
-  deleteGroup = () => {
-    deleteGroup();
+  handleDeleteGroup = groupId => {
+    this.props.deleteGroup(groupId);
+    setTimeout(() => this.props.getUser(), 300);
   };
 
   render() {
@@ -49,12 +50,20 @@ class Groups extends Component {
               {user.user.groups ? (
                 user.user.groups.map(group => (
                   <>
-                    <Link
-                      className="card"
-                      key={group.group_id}
-                      to={`/group/${group.group_id}`}
-                    >
-                      <div className="card-name">{group.group_name}</div>
+                    <div className="card">
+                      <Link
+                        className="card-name"
+                        key={group.group_id}
+                        to={`/group/${group.group_id}`}
+                      >
+                        <div id="content-link">{group.group_name}</div>
+                      </Link>
+                      <button
+                        onClick={() => this.handleDeleteGroup(group.group_id)}
+                        className="group-delete-btn"
+                      >
+                        Delete
+                      </button>
                       {currentUserInGroup
                         .filter(item => item.group_id === group.group_id)
                         .map(item => {
@@ -69,7 +78,7 @@ class Groups extends Component {
                             </div>
                           ));
                         })}
-                    </Link>
+                    </div>
                   </>
                 ))
               ) : (

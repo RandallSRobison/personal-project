@@ -69,7 +69,14 @@ module.exports = {
     res.status(200).send("Your session was obliterated.");
   },
 
-  getUser(req, res) {
+  async getUser(req, res) {
+    console.log("gayyyyyyyyyyyyyy", req.session.user.id);
+    const db = req.app.get("db");
+    if (req.session.user.id) {
+      let groups = await db.get_user_groups(req.session.user.id);
+      req.session.user = { ...req.session.user, groups };
+    }
+
     res.send(req.session.user);
   }
 };

@@ -32,6 +32,27 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+@media (max-width: 768px) {
+  .link-to-dashboard {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 414px) {
+  .link-to-dashboard {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 375px) {
+  .link-to-dashboard {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 320px) {
+  .link-to-dashboard {
+    font-size: .8rem;
+  }
+}
+
 .user-goal-card-container {
   width: 100vw;
   background: transparent;

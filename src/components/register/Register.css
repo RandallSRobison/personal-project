@@ -1,4 +1,5 @@
 .register-gradient {
+  height: 100vh;
   background-image: linear-gradient(#78ccff 55%, #009eff 80%);
 }
 
@@ -28,6 +29,42 @@
   border: 3px solid #ff3658;
 }
 
+@media (max-width: 1366px) {
+  .register-image {
+    margin-bottom: 4%;
+    height: 210px;
+    width: 210px;
+  }
+}
+@media (max-width: 1024px) {
+  .register-image {
+    margin-bottom: 4%;
+    height: 210px;
+    width: 210px;
+  }
+}
+@media (max-width: 414px) {
+  .register-image {
+    height: 160px;
+    width: 160px;
+    margin-top: 3%;
+  }
+}
+@media (max-width: 375px) {
+  .register-image {
+    height: 150px;
+    width: 150px;
+    margin-top: 3%;
+  }
+}
+@media (max-width: 320px) {
+  .register-image {
+    height: 90px;
+    width: 90px;
+    margin-top: 3%;
+  }
+}
+
 .register-text {
   font-family: "Sanchez", serif;
   background: transparent;
@@ -47,6 +84,50 @@
   font-size: 1rem;
 }
 
+@media (max-width: 2366px) {
+  .input {
+    height: 6vh;
+    width: 40vw;
+  }
+}
+@media (max-width: 1366px) {
+  .input {
+    height: 6vh;
+    width: 40vw;
+  }
+}
+@media (max-width: 1024px) {
+  .input {
+    margin-top: 3%;
+    height: 5vh;
+    width: 45vw;
+  }
+}
+@media (max-width: 768px) {
+  .input {
+    height: 6vh;
+    width: 60vw;
+    margin-top: 5%;
+  }
+}
+@media (max-width: 414px) {
+  .input {
+    height: 7vh;
+    width: 80vw;
+  }
+}
+@media (max-width: 375px) {
+  .input {
+    height: 6.5vh;
+    width: 80vw;
+  }
+}
+@media (max-width: 320px) {
+  .input {
+    height: 6.5vh;
+  }
+}
+
 .create-btn-parent {
   display: flex;
   width: 100%;
@@ -58,7 +139,6 @@
 
 .create-btn {
   color: #fff;
-  height: 110%;
   width: 50%;
   font-size: 1.2rem;
   background: #ff3658;
@@ -76,6 +156,59 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+
+@media (max-width: 2366px) {
+  .create-btn {
+    width: 20%;
+    margin-right: 29.5%;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1366px) {
+  .create-btn {
+    width: 20%;
+    margin-right: 29.3%;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1024px) {
+  .create-btn {
+    width: 20%;
+    margin-right: 26.9%;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .create-btn {
+    width: 40%;
+    margin-right: 19%;
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 414px) {
+  .create-btn {
+    font-size: 1rem;
+    margin-right: 8%;
+    padding: 9px;
+    margin-top: 1%;
+  }
+}
+@media (max-width: 375px) {
+  .create-btn {
+    font-size: 1rem;
+    margin-right: 8%;
+    padding: 9px;
+    margin-top: 3%;
+  }
+}
+@media (max-width: 320px) {
+  .create-btn {
+    font-size: 1rem;
+    margin-right: 8%;
+    padding: 9px;
+  }
+}
+
 .b2log-parent {
   display: flex;
   width: 100%;
@@ -83,7 +216,7 @@
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
-  margin: 4%;
+  /* margin: 4%; */
 }
 
 .b2log-btn {
