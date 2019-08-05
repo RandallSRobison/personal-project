@@ -2,10 +2,11 @@ require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const massive = require("massive");
-const sc = require("./controllers/stripeController")
+const sc = require("./controllers/stripeController");
 const uc = require("./controllers/userController");
 const gc = require("./controllers/groupsController");
 const glc = require("./controllers/goalsController");
+const path = require("path");
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
 
 const app = express();
@@ -42,7 +43,13 @@ app.get("/api/goals/:groupId", glc.getGoals);
 app.get("/api/usergoals/:userId", glc.getGoalsByUser);
 
 //stripe endpoints
-app.post("/api/payment", sc.pay)
+app.post("/api/payment", sc.pay);
+
+app.use(express.static(__dirname + "/../build"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
 app.listen(SERVER_PORT, () => {
   console.log(`Cruisin' for a bruisin' on port ${SERVER_PORT}`);
