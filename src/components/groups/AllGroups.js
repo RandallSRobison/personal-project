@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   getAllGroups,
-  createGroup
+  createGroup,
+  joinGroup
 } from "../../redux/groupsReducer";
 import Header from "../header/Header";
 import { Redirect, Link } from "react-router-dom";
@@ -21,6 +22,7 @@ class AllGroups extends Component {
 
   render() {
     let { user } = this.props;
+    console.log(this.props);
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     return (
       <div className="groups-gradient">
@@ -40,8 +42,31 @@ class AllGroups extends Component {
             <div className="group-card-container">
               {this.props.groups.groups.map(group => (
                 <div className="card">
-                  <div id="content-link">{group.group_name}</div>
-                  <button className="group-join-btn">Join</button>
+                  <div className='content-join-wrapper'>
+                    <div id="content-link">{group.group_name}</div>
+                    <button
+                      className="group-join-btn"
+                      onClick={() =>
+                        this.props.joinGroup(
+                          group.group_id,
+                          this.props.user.user.id
+                        )
+                      }
+                    >
+                      Join
+                    </button>
+                  </div>
+                  {/* <button
+                    className="group-join-btn"
+                    onClick={() =>
+                      this.props.joinGroup(
+                        group.group_id,
+                        this.props.user.user.id
+                      )
+                    }
+                  >
+                    Join
+                  </button> */}
                   <div>
                     {group.users_in_group.map(user => {
                       if (user.user_id === group.admin_id) {
@@ -80,5 +105,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getAllGroups, createGroup }
+  { getAllGroups, createGroup, joinGroup }
 )(AllGroups);

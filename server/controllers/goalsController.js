@@ -9,20 +9,43 @@ module.exports = {
     res.status(200).send(goals);
   },
 
-  async createGoal(req, res) {
+  // async editGoal(req, res) {
+  //   let { goalId } = req.params;
+  //   let { newDesc, newTitle, groupId } = req.body;
+  //   const db = req.app.get("db");
+  //   let newGoal = await db.edit_goal([+goalId, newDesc, newTitle, groupId]);
+  //   res.send(newGoal);
+  // },
+
+  async addGoal(req, res) {
+    console.log("params", req.params, "body", req.body);
     let { groupId } = req.params;
+    let { goalTitle, goalDescription } = req.body;
     const db = req.app.get("db");
-    const { goalDesc, goalTitle } = req.body;
-    const createdGoal = await db.create_goal([+groupId, goalDesc, goalTitle]);
-    res.send(createdGoal);
+    let [newGoal] = await db.add_goal(goalTitle, goalDescription);
+    await db.add_goal_to_group(newGoal.goal_id, groupId)
+    let goals = await db.get_goals_by_group(groupId);
+    res.status(200).send(goals);
   },
 
-  async editGoal(req, res) {
+  async changeStatus(req, res) {
     let { goalId } = req.params;
-    let { newDesc, newTitle, groupId } = req.body;
+    let { goalStatus } = req.body;
     const db = req.app.get("db");
-    let newGoal = await db.edit_goal([+goalId, newDesc, newTitle, groupId]);
-    res.send(newGoal);
+    let status = await db.swap_goal_status(goalId, goalStatus)
+    res.status(200).send(status)
+  },
+
+  async deleteGoal(req, res) {
+    console.log('dis da shiz', req.params, req.query)
+    let {groupId} = req.params;
+    let { goalId} = req.query;
+    const db = req.app.get("db");
+    const deletedGoal = await db.delete_goal(+goalId);
+    console.log("controller", deletedGoal);
+    let goals = await db.get_goals_by_group(+groupId);
+    console.log(goals)
+    res.status(200).send(goals);
   },
 
   async getGoalsByUser(req, res) {
@@ -34,6 +57,6 @@ module.exports = {
     if (!userGoals[0]) {
       return res.status(401).send("No goals for this user detected.");
     }
-    res.status(200).send(userGoals);
+    res.status(200).send([userGoals]);
   }
 };

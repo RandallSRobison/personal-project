@@ -1,13 +1,13 @@
 module.exports = {
-  async getGroups(req, res) {
-    const { id } = req.body;
-    const db = req.app.get("db");
-    let userGroups = await db.get_groups(id);
-    if (!userGroups) return res.status(401).send("No groups detected.");
-    if (userGroups) {
-      req.session.user.groups = userGroups;
-    }
-  },
+  // async getGroups(req, res) {
+  //   const { id } = req.body;
+  //   const db = req.app.get("db");
+  //   let userGroups = await db.get_groups(id);
+  //   if (!userGroups) return res.status(401).send("No groups detected.");
+  //   if (userGroups) {
+  //     req.session.user.groups = userGroups;
+  //   }
+  // },
 
   async getAllGroups(req, res) {
     const db = req.app.get("db");
@@ -34,7 +34,10 @@ module.exports = {
     let { groupId, userId } = req.body;
     const db = req.app.get("db");
     let joinedGroup = await db.join_group(groupId, userId);
-    res.send(joinedGroup);
+    // if (joinedGroup.length > 0) {
+      let groups = await db.get_all_groups();
+    res.send(groups);
+    // } else res.status(401).send("There was a problem.");
   },
 
   async deleteGroup(req, res, next) {

@@ -31,7 +31,7 @@ app.delete("/api/logout", uc.logout);
 app.put("/api/edit/user/:userId", uc.editUser);
 
 //group endpoints
-app.get("/api/groups/:userId", gc.getGroups);
+// app.get("/api/groups/:userId", gc.getGroups);
 app.get("/api/allgroups", gc.getAllGroups);
 app.post("/api/form", gc.createGroup, gc.getAllGroups);
 app.delete(`/api/groups/:groupId`, gc.deleteGroup, gc.getAllGroups);
@@ -39,9 +39,12 @@ app.delete("/api/logout/groups", gc.logout);
 app.post("/api/join", gc.joinGroup);
 
 //goal endpoints
-app.put(`/api/edit/goals/:goalId`, glc.editGoal);
+// app.put(`/api/edit/goals/:goalId`, glc.editGoal);
 app.get("/api/goals/:groupId", glc.getGoals);
 app.get("/api/usergoals/:userId", glc.getGoalsByUser);
+app.post("/api/goals/:groupId", glc.addGoal);
+app.delete("/api/goal/:groupId", glc.deleteGoal);
+app.put("/api/goalstatus/:goalId", glc.changeStatus);
 
 //stripe endpoints
 app.post("/api/payment", sc.pay);

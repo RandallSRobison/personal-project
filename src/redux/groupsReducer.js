@@ -4,7 +4,8 @@ import {
   DELETE_GROUP,
   CREATE_GROUP,
   LOGOUT_GROUPS,
-  GET_ALL_GROUPS
+  GET_ALL_GROUPS,
+  JOIN_GROUP
 } from "./actionTypes.js";
 
 const initialState = {
@@ -49,6 +50,14 @@ export function createGroup(groupName, admin) {
   };
 }
 
+export function joinGroup(groupId, userId) {
+  let data = axios.post("/api/join", { groupId, userId }).then(res => res.data);
+  return {
+    type: JOIN_GROUP,
+    payload: data
+  };
+}
+
 export function logoutGroups() {
   return {
     type: LOGOUT_GROUPS,
@@ -80,6 +89,10 @@ export default function groupsReducer(state = initialState, action) {
     case GET_ALL_GROUPS + "_FULFILLED":
       return { ...state, groups: payload, error: false };
     case GET_ALL_GROUPS + "_REJECTED":
+      return { ...state, error: payload };
+    case JOIN_GROUP + "_FULFILLED":
+      return { ...state, groups: payload, error: false };
+    case JOIN_GROUP + "_REJECTED":
       return { ...state, error: payload };
     default:
       return state;

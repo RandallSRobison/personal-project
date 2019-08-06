@@ -41,7 +41,6 @@ class Form extends Component {
               onChange={this.handleChange}
             />
             <Link className="form-btn-wrapper" to="/">
-              {console.log("state and props in Form", this.props, this.state)}
               <div
                 className="create-form-btn"
                 onClick={() =>
