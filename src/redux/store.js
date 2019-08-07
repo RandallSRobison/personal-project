@@ -3,7 +3,7 @@ import promiseMiddleware from "redux-promise-middleware";
 import userReducer from "./userReducer";
 import groupsReducer from "./groupsReducer";
 import goalsReducer from "./goalsReducer";
-import {persistStore, persistReducer} from 'redux-persist'
+import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 const rootReducer = combineReducers({
@@ -17,9 +17,7 @@ const persistConfig = {
   storage
 };
 
-
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 
 export const store = createStore(
   persistedReducer,

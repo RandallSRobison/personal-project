@@ -47,12 +47,12 @@
 }
 @media (max-width: 320px) {
   .link-to-dashboard {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 }
 
 .no-group-goals {
-  font-family: 'Sanchez', sans-serif;
+  font-family: "Sanchez", sans-serif;
   font-size: 1.4rem;
   background: #fff;
   color: #666;

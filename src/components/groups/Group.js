@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getGoals, clearPrevGoals, addGoal } from "../../redux/goalsReducer";
 import Goal from "../goal/Goal";
 import Header from "../header/Header";
-import { Link, Redirect, withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import "./Group.css";
 
 class Group extends Component {
@@ -51,8 +51,6 @@ class Group extends Component {
   };
 
   render() {
-    console.log("props on group", this.props);
-    console.log("this.state :", this.state);
     let { goals, user } = this.props;
     let { editing, goalTitle, goalDescription } = this.state;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
@@ -68,44 +66,44 @@ class Group extends Component {
         </div>
         <div className="group-card-holder">
           <div className="gg-card">
-              <div id="gg-name">{goals.groupWithGoalsObj.group_name}</div>
-              {editing ? (
-                <div className='goal-input-area-wrapper'>
-                  <input
-                    name="goalTitle"
-                    type="text"
-                    value={goalTitle}
-                    placeholder="goal title"
-                    className="add-goal-input"
-                    onChange={this.handleChange}
-                  />
-                  <textarea
-                    name="goalDescription"
-                    type="text"
-                    value={goalDescription}
-                    placeholder="goal description"
-                    className="add-goal-text-area"
-                    onChange={this.handleChange}
-                  />
-                  <div className="goal-save-container">
-                    <button className="dash-sa-ca-btn" onClick={this.addGoal}>
-                      save
-                    </button>
-                    <button className="dash-sa-ca-btn" onClick={this.flipEdit}>
-                      cancel
-                    </button>
-                  </div>
+            <div id="gg-name">{goals.groupWithGoalsObj.group_name}</div>
+            {editing ? (
+              <div className="goal-input-area-wrapper">
+                <input
+                  name="goalTitle"
+                  type="text"
+                  value={goalTitle}
+                  placeholder="goal title"
+                  className="add-goal-input"
+                  onChange={this.handleChange}
+                />
+                <textarea
+                  name="goalDescription"
+                  type="text"
+                  value={goalDescription}
+                  placeholder="goal description"
+                  className="add-goal-text-area"
+                  onChange={this.handleChange}
+                />
+                <div className="goal-save-container">
+                  <button className="dash-sa-ca-btn" onClick={this.addGoal}>
+                    save
+                  </button>
+                  <button className="dash-sa-ca-btn" onClick={this.flipEdit}>
+                    cancel
+                  </button>
                 </div>
-              ) : (
-                <button className="add-goal-btn" onClick={this.flipEdit}>
-                  Add Goal
-                </button>
-              )}
-            {goals.groupWithGoalsObj.goals ? (
-              goals.groupWithGoalsObj.goals.map(goal => {
-                return <Goal key={goal.goal_id} {...goal} />
-              })
-            ) : null}
+              </div>
+            ) : (
+              <button className="add-goal-btn" onClick={this.flipEdit}>
+                Add Goal
+              </button>
+            )}
+            {goals.groupWithGoalsObj.goals
+              ? goals.groupWithGoalsObj.goals.map(goal => {
+                  return <Goal key={goal.goal_id} {...goal} />;
+                })
+              : null}
           </div>
         </div>
       </div>

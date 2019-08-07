@@ -19,7 +19,6 @@ class Form extends Component {
   };
 
   render() {
-    console.log("props in form", this.props);
     let { groupName } = this.state;
     let { user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;

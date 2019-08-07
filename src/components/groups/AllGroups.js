@@ -22,7 +22,6 @@ class AllGroups extends Component {
 
   render() {
     let { user } = this.props;
-    console.log(this.props);
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     return (
       <div className="groups-gradient">

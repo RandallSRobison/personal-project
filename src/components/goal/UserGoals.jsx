@@ -9,7 +9,6 @@ class UserGoals extends Component {
   componentDidMount() {
     let { getGoalsByUser, user } = this.props;
     getGoalsByUser(user.user.id);
-    console.log(this.props);
   }
 
   componentDidUpdate(prevProps) {
@@ -19,7 +18,6 @@ class UserGoals extends Component {
   }
 
   render() {
-    console.log("props for UserGroup", this.props);
     let { goals, user } = this.props;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
     return (
@@ -33,15 +31,15 @@ class UserGoals extends Component {
           </Link>
         </div>
         <div className="user-goal-card-container">
-          {goals.userWithGoalsObj.length
-            ? goals.userWithGoalsObj.map(group => {
-                return (
-                  <div className="user-goal-card">
-                    <Link className="ug-name" to={`/group/${group.group_id}`}>
-                      <div className="actual-name">{group.group_name}</div>
-                    </Link>
-                    {group.goals_in_group ? (
-                      group.goals_in_group.map(goal => {
+          {goals.userWithGoalsObj.length ? (
+            goals.userWithGoalsObj.map(group => {
+              return (
+                <div className="user-goal-card">
+                  <Link className="ug-name" to={`/group/${group.group_id}`}>
+                    <div className="actual-name">{group.group_name}</div>
+                  </Link>
+                  {group.goals_in_group
+                    ? group.goals_in_group.map(goal => {
                         return (
                           <div>
                             <ul className="user-goal-title">
@@ -53,16 +51,15 @@ class UserGoals extends Component {
                           </div>
                         );
                       })
-                    ) : null}
-                  </div>
-                );
-              })
-            : (
-              <div className="no-group-goals">
-                You do not have any groups with goals.
-              </div>
-            )
-            }
+                    : null}
+                </div>
+              );
+            })
+          ) : (
+            <div className="no-group-goals">
+              You do not have any groups with goals.
+            </div>
+          )}
         </div>
       </div>
     );

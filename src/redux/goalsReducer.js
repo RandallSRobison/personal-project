@@ -98,14 +98,13 @@ export default function goalsReducer(state = initialState, action) {
     case CLEAR_GOALS:
       return { ...state, groupWithGoalsObj: payload };
     case GET_USER_GOALS + "_FULFILLED":
-      console.log("payload :", payload[0]);
+      // console.log("payload :", payload[0]);
       return { ...state, userWithGoalsObj: payload[0], error: false };
     case GET_USER_GOALS + "_REJECTED":
       return { ...state, error: payload, userWithGoalsObj: {} };
     case LOGOUT_GOALS + "_FULFILLED":
       return { groupWithGoalsObj: {}, userWithGoalsObj: {}, error: false };
     case ADD_GOAL + "_FULFILLED":
-      console.log("this is our data on payload", payload);
       if (payload[0].goals) {
         return {
           ...state,
@@ -128,7 +127,6 @@ export default function goalsReducer(state = initialState, action) {
     case ADD_GOAL + "_REJECTED":
       return { ...state, error: payload };
     case DELETE_GOAL + "_FULFILLED":
-      console.log("this is our data on payload", payload);
       if (payload[0].goals) {
         return {
           ...state,

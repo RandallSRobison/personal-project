@@ -30,9 +30,7 @@ export function getAllGroups() {
 }
 
 export function deleteGroup(groupId) {
-  console.log("groupId :", groupId);
   let data = axios.delete(`/api/groups/${groupId}`).then(res => res.data);
-  console.log("hit delete reducer", data);
   return {
     type: DELETE_GROUP,
     payload: data
@@ -43,7 +41,6 @@ export function createGroup(groupName, admin) {
   let data = axios
     .post("/api/form", { groupName, admin })
     .then(res => res.data);
-  console.log("hit reducer", data);
   return {
     type: CREATE_GROUP,
     payload: data

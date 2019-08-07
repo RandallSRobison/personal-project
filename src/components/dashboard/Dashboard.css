@@ -32,11 +32,13 @@
   border-radius: 100%;
   border: 5px solid #ff3658;
 }
+
 .edit-welcome-wrapper {
   border-bottom: 1px solid #ff3658;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
 }
 
 .dashboard-welcome-message {
@@ -115,7 +117,6 @@
   background: #fff;
 }
 
-
 @media (max-width: 768px) {
   .dashboard-links {
     width: 27%;
@@ -169,7 +170,7 @@
 
 .dash-edit-inputs {
   height: 5vh;
-  width: 90vw;
+  width: 100vw;
   display: flex;
   margin-bottom: 1%;
   border-radius: 5px;
@@ -178,9 +179,34 @@
   font-size: 1rem;
 }
 
+@media (max-width: 2633px) {
+  .dash-edit-inputs {
+    width: 20vw;
+  }
+}
+@media (max-width: 1024px) {
+  .dash-edit-inputs {
+    width: 35vw;
+  }
+}
+@media (max-width: 768px) {
+  .dash-edit-inputs {
+    width: 50vw;
+  }
+}
+@media (max-width: 414px) {
+  .dash-edit-inputs {
+    width: 80vw;
+  }
+}
+@media (max-width: 375px) {
+  .dash-edit-inputs {
+    width: 80vw;
+  }
+}
 @media (max-width: 320px) {
   .dash-edit-inputs {
-    width: 95%;
+    width: 70vw;
   }
 }
 

@@ -29,7 +29,6 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-
 @media (min-width: 485px) {
   .create-group-form {
     width: 485px;
@@ -77,11 +76,11 @@
 }
 
 @media (min-width: 485px) {
-    .create-form-btn {
-      margin: 4% 5%;
-      font-size: 1rem;
-    }
+  .create-form-btn {
+    margin: 4% 5%;
+    font-size: 1rem;
   }
+}
 
 @media (min-width: 320px) {
   .create-form-btn {

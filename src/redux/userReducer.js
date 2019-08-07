@@ -8,9 +8,7 @@ const initialState = {
 };
 
 export const login = (username, password) => {
-  console.log("hit login");
   let data = axios.post("/api/login", { username, password }).then(res => {
-    console.log(res.data);
     return res.data;
   });
   return {
@@ -62,13 +60,13 @@ export const editUser = (userId, image, username) => {
   let data = axios
     .put(`/api/edit/user/${userId}`, { image, username })
     .then(res => {
-      return res.data});
+      return res.data;
+    });
   return {
     type: EDIT_USER,
     payload: data
   };
 };
-
 
 export default function(state = initialState, action) {
   let { type, payload } = action;

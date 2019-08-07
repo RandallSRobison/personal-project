@@ -23,7 +23,6 @@ class Goal extends Component {
   };
 
   render() {
-    // console.log("goal jsx", this.props);
     return (
       <div>
         <div>

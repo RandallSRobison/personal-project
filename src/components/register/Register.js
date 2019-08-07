@@ -35,11 +35,11 @@ class Register extends Component {
   };
 
   addDefaultImg = e => {
-    e.target.src = 'https://secondchancetinyhomes.org/wp-content/uploads/2016/09/empty-profile.png'
-  }
+    e.target.src =
+      "https://secondchancetinyhomes.org/wp-content/uploads/2016/09/empty-profile.png";
+  };
 
   render() {
-    console.log("hit register", this.props);
     const {
       firstName,
       lastName,
@@ -54,8 +54,12 @@ class Register extends Component {
       <div className="register-gradient">
         <div className="main-container-1">
           <div className="main-container2">
-            <img 
-            onError={this.addDefaultImg} src={image} alt='' className='register-image'/>
+            <img
+              onError={this.addDefaultImg}
+              src={image}
+              alt=""
+              className="register-image"
+            />
             <form className="form">
               <div>
                 <h3 className="register-text">Register</h3>

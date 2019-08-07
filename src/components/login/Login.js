@@ -3,7 +3,7 @@ import { login } from "../../redux/userReducer";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./Login.css";
-import logo from './collectiveLogo.png'
+import logo from "./collectiveLogo.png";
 
 class Login extends Component {
   constructor() {
@@ -24,16 +24,15 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.props);
     let { username, password } = this.state;
     let { user } = this.props;
     if (user.user.loggedIn) return <Redirect to="/" />;
     return (
       <div className="gradient">
-        <div className='logo-wrapper'>
-        <img src={logo} className="main-logo"/>
+        <div className="logo-wrapper">
+          <img src={logo} className="main-logo" />
         </div>
-          <img className="logo-login" alt="" />
+        <img className="logo-login" alt="" />
         <div className="main-container1">
           <div className="main-container-2">
             <form className="form">

@@ -61,12 +61,12 @@
   font-size: 3rem;
 }
 
-.dollar-sign-wrapper{
+.dollar-sign-wrapper {
   display: flex;
 }
 
 .dollar-sign {
-  font-family: 'Sanchez', sans-serif;
+  font-family: "Sanchez", sans-serif;
   color: #fff;
   font-size: 1.3rem;
 }
@@ -187,5 +187,3 @@
   color: #ff3658;
   background: #fff;
 } */
-
-

@@ -14,7 +14,6 @@ class StripeDonation extends Component {
   }
 
   onToken = token => {
-    console.log(token);
     let { amount } = this.state;
     token.card = void 0;
     axios.post("api/payment", { token, amount }).then(res => {
@@ -26,14 +25,14 @@ class StripeDonation extends Component {
   render() {
     return (
       <div className="main-wrapper">
-        <div className='thanks-wrapper'>
-        <div className="donation-thanks">THANK YOU!</div>
+        <div className="thanks-wrapper">
+          <div className="donation-thanks">THANK YOU!</div>
         </div>
         <div className="logo-wrapper">
           <img src={logo} className="main-logo" />
         </div>
         <div className="donation-wrapper">
-          <div className='dollar-sign-wrapper'>
+          <div className="dollar-sign-wrapper">
             <div className="dollar-sign">$</div>
             <input
               className="donation-input"

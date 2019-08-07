@@ -53,7 +53,7 @@ class Groups extends Component {
           </div>
           <div className="group-card-main">
             <div className="group-card-container">
-              {user.user.groups.length ? (
+              {user.user.groups ? (
                 user.user.groups.map(group => (
                   <>
                     <div className="card">
@@ -91,7 +91,7 @@ class Groups extends Component {
                 ))
               ) : (
                 <div className="no-groups-card">
-                  <div className='text'>
+                  <div className="text">
                     You haven't joined any groups! Click here to checkout the
                     All Groups page and get started.
                   </div>

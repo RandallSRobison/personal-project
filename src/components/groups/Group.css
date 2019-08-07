@@ -67,12 +67,15 @@
   height: 5vh;
   border: 1px solid #ddd;
   border-radius: 5px;
+  margin-bottom: 2%;
 }
 
 .add-goal-text-area {
+  font-family: sans-serif;
   height: 10vh;
   border: 1px solid #ddd;
   border-radius: 5px;
+  margin-bottom: 2%;
 }
 
 .add-goal-btn {
@@ -112,3 +115,33 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+@media (max-width: 2633px) {
+  .gg-card {
+    width: 35%;
+  }
+}
+@media (max-width: 1024px) {
+  .gg-card {
+    width: 45%;
+  }
+}
+@media (max-width: 768px) {
+  .gg-card {
+    width: 55%;
+  }
+}
+@media (max-width: 414px) {
+  .gg-card {
+    width: 85%;
+  }
+}
+@media (max-width: 375px) {
+  .gg-card {
+    width: 85%;
+  }
+}
+@media (max-width: 320px) {
+  .gg-card {
+    width: 85%;
+  }
+}

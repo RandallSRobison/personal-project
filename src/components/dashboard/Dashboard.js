@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getUser, editUser } from "../../redux/userReducer";
 import Header from "../header/Header";
 import "./Dashboard.css";
-import pencil from './editPencil.png'
+import pencil from "./editPencil.png";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -52,7 +52,6 @@ class Dashboard extends Component {
   };
 
   render() {
-    console.log(this.props);
     let { user } = this.props;
     let { image, username, editing } = this.state;
     if (!user.user.loggedIn) return <Redirect to="/login" />;
@@ -108,9 +107,11 @@ class Dashboard extends Component {
               </div>
             ) : (
               <div>
-                <img src={pencil} onClick={this.flipEdit} className="dash-edit-btn"/>
-                  {/* Edit Your Info
-                </button> */}
+                <img
+                  src={pencil}
+                  onClick={this.flipEdit}
+                  className="dash-edit-btn"
+                />
               </div>
             )}
           </div>

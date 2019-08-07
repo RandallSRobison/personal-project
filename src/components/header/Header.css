@@ -29,53 +29,51 @@
 
 .main-logo-header {
   height: 45px;
-  width: 45px;
+  width: 70px;
   margin-left: 5%;
 }
 
-@media  (max-width: 2633px) {
+@media (max-width: 2633px) {
   .main-logo-header {
     height: 60px;
-    width: 60px;
+    width: 120px;
     margin-left: 5%;
   }
 }
-@media  (max-width: 768px) {
+@media (max-width: 1024px) {
+  .main-logo-header {
+    height: 60px;
+    width: 130px;
+    margin-left: 5%;
+  }
+}
+@media (max-width: 768px) {
   .main-logo-header {
     height: 70px;
-    width: 70px;
-    margin-left: 5%;
-  }
-}
-@media  (max-width: 414px) {
-  .main-logo-header {
-    height: 55px;
-    width: 55px;
+    width: 130px;
     margin-left: 5%;
   }
 }
 
-@media  (max-width: 414px) {
+@media (max-width: 414px) {
   .main-logo-header {
     height: 55px;
-    width: 55px;
+    width: 105px;
     margin-left: 5%;
   }
 }
-@media  (max-width: 375px) {
+@media (max-width: 375px) {
   .main-logo-header {
     height: 50px;
-    width: 50px;
+    width: 93px;
     margin-left: 5%;
   }
 }
 
-@media  (max-width: 320px) {
+@media (max-width: 320px) {
   .main-logo-header {
     height: 45px;
-    width: 45px;
+    width: 80px;
     margin-left: 5%;
   }
 }
-
-

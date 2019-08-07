@@ -35,7 +35,7 @@ module.exports = {
     const db = req.app.get("db");
     let joinedGroup = await db.join_group(groupId, userId);
     // if (joinedGroup.length > 0) {
-      let groups = await db.get_all_groups();
+    let groups = await db.get_all_groups();
     res.send(groups);
     // } else res.status(401).send("There was a problem.");
   },
