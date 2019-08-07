@@ -17,7 +17,7 @@ export default class Posts extends Component {
         <div className="under-construction-wrapper">
           <div className="construction-text">
             We are so sorry! The page you have requested is under construction.
-            Please check back soon.
+            Please check back soon. Or donate...
           </div>
           <img src={UC} className="UC" alt="" />
         </div>
