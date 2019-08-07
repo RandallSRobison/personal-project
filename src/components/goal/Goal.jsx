@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deleteGoal, changeStatus } from "../../redux/goalsReducer";
+import { deleteGoal, changeGoalStatus } from "../../redux/goalsReducer";
 import "./Goal.css";
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 class Goal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      goalStatus: props.goal_status
+      goalStatus: this.props.goals.groupWithGoalsObj.goals.goal_status
     };
   }
 
@@ -23,12 +23,24 @@ class Goal extends Component {
   };
 
   render() {
-    console.log("goal jsx", this.props);
+    // console.log("goal jsx", this.props);
     return (
       <div>
         <div>
-          <button className='delete-btn' onClick={() => this.props.deleteGoal(this.props.match.params.groupId, this.props.goal_id)}>Delete</button>
-          <h3 className="goal-title">{this.props.goal_title}</h3>
+          <div className="delete-goal-wrapper">
+            <button
+              className="delete-btn"
+              onClick={() =>
+                this.props.deleteGoal(
+                  this.props.match.params.groupId,
+                  this.props.goal_id
+                )
+              }
+            >
+              X
+            </button>
+            <h3 className="goal-title">{this.props.goal_title}</h3>
+          </div>
           <h5 className="goal-description">{this.props.goal_description}</h5>
         </div>
       </div>
@@ -44,6 +56,6 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { deleteGoal }
-  )(withRouter(Goal));
+  { deleteGoal, changeGoalStatus }
+)(withRouter(Goal));
 // export default Goal;

@@ -28,7 +28,7 @@ module.exports = {
     res.status(200).send(goals);
   },
 
-  async changeStatus(req, res) {
+  async changeGoalStatus(req, res) {
     let { goalId } = req.params;
     let { goalStatus } = req.body;
     const db = req.app.get("db");

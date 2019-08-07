@@ -1,4 +1,4 @@
-insert into goals (goal_description, goal_title)
+insert into goals (goal_title, goal_description)
 values ($1, $2)
 
 

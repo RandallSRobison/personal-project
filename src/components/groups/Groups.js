@@ -53,23 +53,25 @@ class Groups extends Component {
           </div>
           <div className="group-card-main">
             <div className="group-card-container">
-              {user.user.groups ? (
+              {user.user.groups.length ? (
                 user.user.groups.map(group => (
                   <>
                     <div className="card">
-                      <Link
-                        className="card-name"
-                        key={group.group_id}
-                        to={`/group/${group.group_id}`}
-                      >
-                        <div id="content-link">{group.group_name}</div>
-                      </Link>
-                      <button
-                        onClick={() => this.handleDeleteGroup(group.group_id)}
-                        className="group-delete-btn"
-                      >
-                        Delete
-                      </button>
+                      <div className="link-delete-wrapper">
+                        <Link
+                          className="card-name"
+                          key={group.group_id}
+                          to={`/group/${group.group_id}`}
+                        >
+                          <div id="content-link">{group.group_name}</div>
+                        </Link>
+                        <button
+                          onClick={() => this.handleDeleteGroup(group.group_id)}
+                          className="group-delete-btn"
+                        >
+                          Delete
+                        </button>
+                      </div>
                       {currentUserInGroup
                         .filter(item => item.group_id === group.group_id)
                         .map(item => {
@@ -89,10 +91,12 @@ class Groups extends Component {
                 ))
               ) : (
                 <div className="no-groups-card">
-                  You haven't joined any groups! Click here to checkout the All
-                  Groups page and get started.
-                  <Link className="no-groups-to-dashboard" to="/">
-                    {`< Dashboard`}
+                  <div className='text'>
+                    You haven't joined any groups! Click here to checkout the
+                    All Groups page and get started.
+                  </div>
+                  <Link className="no-groups-to-all-groups" to="/allgroups">
+                    All Groups
                   </Link>
                 </div>
               )}

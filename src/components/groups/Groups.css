@@ -33,6 +33,8 @@
 
 .link-to-dashboard:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  color: #ff3658;
+  background: #fff;
 }
 
 .link-to-form {
@@ -51,6 +53,8 @@
 
 .link-to-form:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  color: #ff3658;
+  background: #fff;
 }
 
 @media (max-width: 768px) {
@@ -112,6 +116,10 @@
   color: #666;
   border-bottom: 1px solid #ff3658;
 }
+.link-delete-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 
 .group-card-buttons-wrapper {
   display: flex;
@@ -120,10 +128,14 @@
 }
 
 .group-delete-btn {
-  border: 1px solid #666;
-  background: transparent;
+  text-decoration: none;
+  display: flex;
+  color: #fff;
+  font-size: 1rem;
+  background: #ff3658;
+  border: none;
   border-radius: 5px;
-  padding: 2px 6px;
+  padding: 8px 10px;
   outline: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -166,6 +178,13 @@
   text-decoration: none;
   font-size: 1.4rem;
   border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  
 }
 
 
@@ -211,9 +230,37 @@
   width: 65px;
   border-radius: 100%;
 }
+.text {
+  margin-bottom: 5%;
+}
 
 .no-groups-card {
+  font-family: "Sanchez", sans-serif;
+  color: #666;
+  font-size: 1.4rem;
   border-radius: 5px;
-  width: 90vw;
+  width: 85vw;
+  padding: 5%;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-groups-to-all-groups {
+  text-decoration: none;
+  width: 30%;
+  color: #fff;
+  font-size: 1rem;
+  background: #ff3658;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.no-groups-to-all-groups:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }

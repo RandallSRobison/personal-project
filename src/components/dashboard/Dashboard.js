@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getUser, editUser } from "../../redux/userReducer";
 import Header from "../header/Header";
 import "./Dashboard.css";
+import pencil from './editPencil.png'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -71,61 +72,65 @@ class Dashboard extends Component {
               className="dashboard-user-img"
             />
           </div>
-          <h2 className="dashboard-welcome-message">{`Welcome, ${
-            user.user.username
-          }!`}</h2>
+          <div className="edit-welcome-wrapper">
+            <h2 className="dashboard-welcome-message">{`Welcome, ${
+              user.user.username
+            }!`}</h2>
+            {editing ? (
+              <div>
+                <input
+                  name="image"
+                  type="text"
+                  value={image}
+                  placeholder="new image url"
+                  className="dash-edit-inputs"
+                  onChange={this.handleChange}
+                />
+                <input
+                  name="username"
+                  type="text"
+                  value={username}
+                  placeholder="new username"
+                  className="dash-edit-inputs"
+                  onChange={this.handleChange}
+                />
+                <div className="dash-sa-ca-container">
+                  <button
+                    className="dash-sa-ca-btn"
+                    onClick={this.editUserInfo}
+                  >
+                    save
+                  </button>
+                  <button className="dash-sa-ca-btn" onClick={this.flipEdit}>
+                    cancel
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <img src={pencil} onClick={this.flipEdit} className="dash-edit-btn"/>
+                  {/* Edit Your Info
+                </button> */}
+              </div>
+            )}
+          </div>
           <div className="dashboard-what-to-do">
             <h4>What Do You Want To See?</h4>
           </div>
-          
         </div>
         <div className="dashboard-links-wrapper">
           <Link className="dashboard-links" to="/groups">
-            <div >My Groups</div>
+            <div>My Groups</div>
           </Link>
           <Link className="dashboard-links" to="/allgroups">
-            <div >All Groups</div>
+            <div>All Groups</div>
           </Link>
           <Link className="dashboard-links" to="/goals">
-            <div >Goals</div>
+            <div>Goals</div>
           </Link>
-          <Link className="dashboard-links" to="/groups">
-            <div >Posts</div>
+          <Link className="dashboard-links" to="/posts">
+            <div>Posts</div>
           </Link>
-          {editing ? (
-            <div>
-              <input
-                name="image"
-                type="text"
-                value={image}
-                placeholder="new image url"
-                className="dash-edit-inputs"
-                onChange={this.handleChange}
-              />
-              <input
-                name="username"
-                type="text"
-                value={username}
-                placeholder="new username"
-                className="dash-edit-inputs"
-                onChange={this.handleChange}
-              />
-              <div className="dash-sa-ca-container">
-                <button className="dash-sa-ca-btn" onClick={this.editUserInfo}>
-                  save
-                </button>
-                <button className="dash-sa-ca-btn" onClick={this.flipEdit}>
-                  cancel
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div>
-              <button onClick={this.flipEdit} className="dash-edit-btn">
-                Edit Your Info
-              </button>
-            </div>
-          )}
         </div>
       </div>
     );

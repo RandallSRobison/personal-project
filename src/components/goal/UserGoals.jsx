@@ -12,6 +12,12 @@ class UserGoals extends Component {
     console.log(this.props);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.render();
+    }
+  }
+
   render() {
     console.log("props for UserGroup", this.props);
     let { goals, user } = this.props;
@@ -34,20 +40,29 @@ class UserGoals extends Component {
                     <Link className="ug-name" to={`/group/${group.group_id}`}>
                       <div className="actual-name">{group.group_name}</div>
                     </Link>
-                    {group.goals_in_group.map(goal => {
-                      return (
-                        <div>
-                          <ul className="user-goal-title">{goal.goal_title}</ul>
-                          <p className="user-goal-description">
-                            {goal.goal_description}
-                          </p>
-                        </div>
-                      );
-                    })}
+                    {group.goals_in_group ? (
+                      group.goals_in_group.map(goal => {
+                        return (
+                          <div>
+                            <ul className="user-goal-title">
+                              {goal.goal_title}
+                            </ul>
+                            <p className="user-goal-description">
+                              {goal.goal_description}
+                            </p>
+                          </div>
+                        );
+                      })
+                    ) : null}
                   </div>
                 );
               })
-            : null}
+            : (
+              <div className="no-group-goals">
+                You do not have any groups with goals.
+              </div>
+            )
+            }
         </div>
       </div>
     );

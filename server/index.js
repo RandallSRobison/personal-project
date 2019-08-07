@@ -44,7 +44,7 @@ app.get("/api/goals/:groupId", glc.getGoals);
 app.get("/api/usergoals/:userId", glc.getGoalsByUser);
 app.post("/api/goals/:groupId", glc.addGoal);
 app.delete("/api/goal/:groupId", glc.deleteGoal);
-app.put("/api/goalstatus/:goalId", glc.changeStatus);
+app.put("/api/goalstatus/:goalId", glc.changeGoalStatus);
 
 //stripe endpoints
 app.post("/api/payment", sc.pay);

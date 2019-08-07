@@ -51,6 +51,15 @@
   }
 }
 
+.no-group-goals {
+  font-family: 'Sanchez', sans-serif;
+  font-size: 1.4rem;
+  background: #fff;
+  color: #666;
+  width: 85vw;
+  border-radius: 5px;
+}
+
 .user-goal-card-container {
   width: 100vw;
   background: transparent;
@@ -97,4 +106,6 @@
 
 .user-goal-card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  color: #78ccff;
+  background: #fff;
 }
