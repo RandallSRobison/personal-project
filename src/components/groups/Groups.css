@@ -22,6 +22,7 @@
   display: flex;
   color: #fff;
   font-size: 1.2rem;
+  font-family: "Abril Fatface", cursive;
   background: #ff3658;
   border: none;
   border-radius: 5px;
@@ -42,6 +43,7 @@
   display: flex;
   color: #fff;
   font-size: 1.2rem;
+  font-family: "Abril Fatface", cursive;
   background: #ff3658;
   border: none;
   border-radius: 5px;
@@ -110,10 +112,12 @@
 .card-name {
   color: #666;
   text-decoration: none;
+  font-family: "Abril Fatface", cursive;
 }
 
 #content-link {
   color: #666;
+  font-family: "Abril Fatface", cursive;
   border-bottom: 1px solid #ff3658;
 }
 .link-delete-wrapper {
@@ -169,7 +173,6 @@
 }
 
 .card {
-  font-family: "Sanchez", serif;
   margin-top: 5%;
   width: 90%;
   background: #fff;

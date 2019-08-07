@@ -66,7 +66,7 @@
 }
 
 .register-text {
-  font-family: "Sanchez", serif;
+  font-family: 'Abril Fatface', cursive;
   background: transparent;
   color: #fff;
   font-size: 2rem;
@@ -142,6 +142,7 @@
   width: 50%;
   font-size: 1.2rem;
   background: #ff3658;
+  font-family: 'Abril Fatface', cursive;
   border: none;
   border-radius: 5px;
   outline: none;
@@ -217,11 +218,9 @@
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
-  /* margin: 4%; */
 }
 
 .b2log-btn {
-  font-family: "Sanchez", serif;
   color: #fff;
   font-size: 1.2rem;
   margin-bottom: 18px;

@@ -12,6 +12,7 @@
   color: #fff;
   font-size: 1.2rem;
   background: #009eff;
+  font-family: 'Abril Fatface', cursive;
   border: none;
   border-radius: 5px;
   padding: 8px 20px;
@@ -36,21 +37,21 @@
 @media (max-width: 2633px) {
   .main-logo-header {
     height: 60px;
-    width: 120px;
+    width: 135px;
     margin-left: 5%;
   }
 }
 @media (max-width: 1024px) {
   .main-logo-header {
     height: 60px;
-    width: 130px;
+    width: 135px;
     margin-left: 5%;
   }
 }
 @media (max-width: 768px) {
   .main-logo-header {
     height: 70px;
-    width: 130px;
+    width: 145px;
     margin-left: 5%;
   }
 }
@@ -58,14 +59,14 @@
 @media (max-width: 414px) {
   .main-logo-header {
     height: 55px;
-    width: 105px;
+    width: 120px;
     margin-left: 5%;
   }
 }
 @media (max-width: 375px) {
   .main-logo-header {
     height: 50px;
-    width: 93px;
+    width: 108px;
     margin-left: 5%;
   }
 }
@@ -73,7 +74,7 @@
 @media (max-width: 320px) {
   .main-logo-header {
     height: 45px;
-    width: 80px;
+    width: 95px;
     margin-left: 5%;
   }
 }

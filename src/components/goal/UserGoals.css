@@ -52,7 +52,6 @@
 }
 
 .no-group-goals {
-  font-family: "Sanchez", sans-serif;
   font-size: 1.4rem;
   background: #fff;
   color: #666;
@@ -72,6 +71,7 @@
   text-decoration: none;
   font-size: 1.4rem;
   color: #666;
+  font-family: "Abril Fatface", cursive;
 }
 
 .actual-name {
@@ -79,6 +79,7 @@
 }
 
 .user-goal-title {
+font-family: 'Abril Fatface', cursive;
   display: list-item;
   font-size: 1.2rem;
   list-style-type: circle;
@@ -91,7 +92,6 @@
 }
 
 .user-goal-card {
-  font-family: "Sanchez", serif;
   margin-top: 5%;
   width: 85%;
   background: #fff;

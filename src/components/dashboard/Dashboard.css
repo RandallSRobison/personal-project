@@ -3,15 +3,6 @@
   margin: 0px;
 }
 
-/* @keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
-
 .dashboard-gradient {
   min-height: 100vh;
   width: 100vw;
@@ -42,7 +33,7 @@
 }
 
 .dashboard-welcome-message {
-  font-family: "Sanchez", serif;
+  font-family: 'Abril Fatface', cursive;
   width: 100vw;
   height: 8vh;
   display: flex;
@@ -54,7 +45,6 @@
 }
 
 .dashboard-what-to-do {
-  font-family: "Sanchez", serif;
   background: transparent;
   width: 100vw;
   height: 8vh;
@@ -99,6 +89,7 @@
   text-decoration: none;
   display: flex;
   justify-content: center;
+  font-family: 'Abril Fatface', cursive;
   color: #fff;
   width: 10%;
   font-size: 1.2rem;

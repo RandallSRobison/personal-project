@@ -16,7 +16,7 @@
 }
 
 .sign-in-text {
-  font-family: "Sanchez", serif;
+  font-family: 'Abril Fatface', cursive;
   color: #fff;
   font-size: 2rem;
   margin: 0px;
@@ -75,7 +75,6 @@
 }
 
 ::placeholder {
-  font-family: "Sanchez", serif;
   color: #ff3658;
   font-size: 1.2rem;
 }
@@ -97,6 +96,7 @@
   color: #fff;
   width: 34%;
   font-size: 1.2rem;
+  font-family: 'Abril Fatface', cursive;
   background: #ff3658;
   border: none;
   border-radius: 5px;
@@ -189,7 +189,6 @@
 }
 
 .donate-button {
-  font-family: "Sanchez", serif;
   color: #fff;
   font-size: 1.2rem;
   background: transparent;
@@ -206,7 +205,6 @@
 }
 
 .register-button {
-  font-family: "Sanchez", serif;
   color: #fff;
   font-size: 1.2rem;
   /* margin-bottom: 16px; */
