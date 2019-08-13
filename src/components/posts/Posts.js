@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../header/Header";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Posts.css";
 import UC from "./underConstruction.png";
 
