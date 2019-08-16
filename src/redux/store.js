@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import promiseMiddleware from "redux-promise-middleware";
+import { composeWithDevTools } from "redux-devtools-extension";
 import userReducer from "./userReducer";
 import groupsReducer from "./groupsReducer";
 import goalsReducer from "./goalsReducer";
@@ -17,12 +18,14 @@ const persistConfig = {
   storage
 };
 
+const composeEnhancers = composeWithDevTools({
+  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+});
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(
   persistedReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(
-    applyMiddleware(promiseMiddleware)
-  )
+  composeEnhancers(applyMiddleware(promiseMiddleware))
 );
 export const persistor = persistStore(store);
